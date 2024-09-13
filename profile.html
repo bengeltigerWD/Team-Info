@@ -9,19 +9,52 @@
 <body>
     <!-- Member Profile -->
     <div class="profile-container">
+        <img id="member-photo" src="" alt="Member Photo" class="profile-photo">
         <h2>Profile of <span id="member-name"></span></h2>
-        <p id="member-info"></p>
+        <p id="member-age"></p>
+        <p id="member-mobile"></p>
+        <p id="member-job"></p>
         <button onclick="goBack()">Back to Member List</button>
     </div>
 
     <script>
         const memberDetails = {
-            "Alice": "Alice is a software engineer with 5 years of experience.",
-            "Bob": "Bob is a graphic designer and illustrator.",
-            "Charlie": "Charlie is a data scientist specializing in AI.",
-            "Dave": "Dave is a front-end developer and UI/UX designer.",
-            "Eve": "Eve is a project manager with a background in agile methodologies.",
-            "Frank": "Frank is a cybersecurity expert with a decade of experience."
+            "Alice": {
+                photo: "alice.jpg",
+                age: "29 years old",
+                mobile: "123-456-7890",
+                job: "Software Engineer"
+            },
+            "Bob": {
+                photo: "bob.jpg",
+                age: "32 years old",
+                mobile: "234-567-8901",
+                job: "Graphic Designer"
+            },
+            "Charlie": {
+                photo: "charlie.jpg",
+                age: "28 years old",
+                mobile: "345-678-9012",
+                job: "Data Scientist"
+            },
+            "Dave": {
+                photo: "dave.jpg",
+                age: "31 years old",
+                mobile: "456-789-0123",
+                job: "Front-End Developer"
+            },
+            "Eve": {
+                photo: "eve.jpg",
+                age: "34 years old",
+                mobile: "567-890-1234",
+                job: "Project Manager"
+            },
+            "Frank": {
+                photo: "frank.jpg",
+                age: "35 years old",
+                mobile: "678-901-2345",
+                job: "Cybersecurity Expert"
+            }
         };
 
         function getMemberNameFromURL() {
@@ -31,8 +64,105 @@
 
         function displayMemberInfo() {
             const memberName = getMemberNameFromURL();
-            document.getElementById("member-name").textContent = memberName;
-            document.getElementById("member-info").textContent = memberDetails[memberName];
+            const details = memberDetails[memberName];
+            if (details) {
+                document.getElementById("member-photo").src = details.photo;
+                document.getElementById("member-photo").alt = `${memberName}'s Photo`;
+                document.getElementById("member-name").textContent = memberName;
+                document.getElementById("member-age").textContent = `Age: ${details.age}`;
+                document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
+                document.getElementById("member-job").textContent = `Job: ${details.job}`;
+            } else {
+                document.getElementById("member-name").textContent = "Member not found";
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Initialize page content
+        displayMemberInfo();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group System - Member Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Member Profile -->
+    <div class="profile-container">
+        <img id="member-photo" src="" alt="Member Photo" class="profile-photo">
+        <h2>Profile of <span id="member-name"></span></h2>
+        <p id="member-age"></p>
+        <p id="member-mobile"></p>
+        <p id="member-job"></p>
+        <button onclick="goBack()">Back to Member List</button>
+    </div>
+
+    <script>
+        const memberDetails = {
+            "Alice": {
+                photo: "alice.jpg",
+                age: "29 years old",
+                mobile: "123-456-7890",
+                job: "Software Engineer"
+            },
+            "Bob": {
+                photo: "bob.jpg",
+                age: "32 years old",
+                mobile: "234-567-8901",
+                job: "Graphic Designer"
+            },
+            "Charlie": {
+                photo: "charlie.jpg",
+                age: "28 years old",
+                mobile: "345-678-9012",
+                job: "Data Scientist"
+            },
+            "Dave": {
+                photo: "dave.jpg",
+                age: "31 years old",
+                mobile: "456-789-0123",
+                job: "Front-End Developer"
+            },
+            "Eve": {
+                photo: "eve.jpg",
+                age: "34 years old",
+                mobile: "567-890-1234",
+                job: "Project Manager"
+            },
+            "Frank": {
+                photo: "frank.jpg",
+                age: "35 years old",
+                mobile: "678-901-2345",
+                job: "Cybersecurity Expert"
+            }
+        };
+
+        function getMemberNameFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('member');
+        }
+
+        function displayMemberInfo() {
+            const memberName = getMemberNameFromURL();
+            const details = memberDetails[memberName];
+            if (details) {
+                document.getElementById("member-photo").src = details.photo;
+                document.getElementById("member-photo").alt = `${memberName}'s Photo`;
+                document.getElementById("member-name").textContent = memberName;
+                document.getElementById("member-age").textContent = `Age: ${details.age}`;
+                document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
+                document.getElementById("member-job").textContent = `Job: ${details.job}`;
+            } else {
+                document.getElementById("member-name").textContent = "Member not found";
+            }
         }
 
         function goBack() {
