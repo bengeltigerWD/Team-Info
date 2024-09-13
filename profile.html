@@ -19,11 +19,11 @@
 
     <script>
         const memberDetails = {
-            "Alice": {
-                photo: "alice.jpg",
-                age: "29 years old",
-                mobile: "123-456-7890",
-                job: "Software Engineer"
+            "Ajmir Ahmed": {
+                photo: "Ajmir.png",
+                age: "16 years old",
+                mobile: "01938964599",
+                job: "Student"
             },
             "Bob": {
                 photo: "bob.jpg",
@@ -62,17 +62,7 @@
             return params.get('member');
         }
 
-        function displayMemberInfo() {
-            const memberName = getMemberNameFromURL();
-            const details = memberDetails[memberName];
-            if (details) {
-                document.getElementById("member-photo").src = details.photo;
-                document.getElementById("member-photo").alt = `${memberName}'s Photo`;
-                document.getElementById("member-name").textContent = memberName;
-                document.getElementById("member-age").textContent = `Age: ${details.age}`;
-                document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
-                document.getElementById("member-job").textContent = `Job: ${details.job}`;
-            } else {
+      else {
                 document.getElementById("member-name").textContent = "Member not found";
             }
         }
