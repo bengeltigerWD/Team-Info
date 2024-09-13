@@ -62,7 +62,17 @@
             return params.get('member');
         }
 
-      else {
+        function displayMemberInfo() {
+            const memberName = getMemberNameFromURL();
+            const details = memberDetails[memberName];
+            if (details) {
+                document.getElementById("member-photo").src = details.photo;
+                document.getElementById("member-photo").alt = `${memberName}'s Photo`;
+                document.getElementById("member-name").textContent = memberName;
+                document.getElementById("member-age").textContent = `Age: ${details.age}`;
+                document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
+                document.getElementById("member-job").textContent = `Job: ${details.job}`;
+            } else {
                 document.getElementById("member-name").textContent = "Member not found";
             }
         }
