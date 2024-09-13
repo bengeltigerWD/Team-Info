@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group System - Member List</title>
-    <link rel="stylesheet" href="styles4.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Member List -->
@@ -17,16 +17,16 @@
     <script>
         const groupMembers = {
             "Group A": [
-                {profile.html?member=Alice },
-                { name: "Bob", info: "Bob is a graphic designer and illustrator." }
+                { name: "Alice", profileLink: "profile.html?member=Alice" },
+                { name: "Bob", profileLink: "profile.html?member=Bob" }
             ],
             "Group B": [
-                { name: "Charlie", info: "Charlie is a data scientist specializing in AI." },
-                { name: "Dave", info: "Dave is a front-end developer and UI/UX designer." }
+                { name: "Charlie", profileLink: "profile.html?member=Charlie" },
+                { name: "Dave", profileLink: "profile.html?member=Dave" }
             ],
             "Group C": [
-                { name: "Eve", info: "Eve is a project manager with a background in agile methodologies." },
-                { name: "Frank", info: "Frank is a cybersecurity expert with a decade of experience." }
+                { name: "Eve", profileLink: "profile.html?member=Eve" },
+                { name: "Frank", profileLink: "profile.html?member=Frank" }
             ]
         };
 
@@ -43,14 +43,74 @@
 
             members.forEach(member => {
                 const li = document.createElement("li");
-                li.textContent = member.name;
-                li.onclick = () => showMemberInfo(member);
+                const link = document.createElement("a");
+                link.href = member.profileLink;
+                link.textContent = member.name;
+                li.appendChild(link);
                 memberListElement.appendChild(li);
             });
         }
 
-        function showMemberInfo(member) {
-            alert(member.info); // This can be replaced with a modal or redirect to a dedicated member bio page
+        function goBack() {
+            window.history.back();
+        }
+
+        // Initialize page content
+        displayMembers();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group System - Member List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Member List -->
+    <div class="member-container">
+        <h2>Members of <span id="group-name"></span></h2>
+        <ul id="member-list"></ul>
+        <button onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        const groupMembers = {
+            "Group A": [
+                { name: "Alice", profileLink: "profile.html?member=Alice" },
+                { name: "Bob", profileLink: "profile.html?member=Bob" }
+            ],
+            "Group B": [
+                { name: "Charlie", profileLink: "profile.html?member=Charlie" },
+                { name: "Dave", profileLink: "profile.html?member=Dave" }
+            ],
+            "Group C": [
+                { name: "Eve", profileLink: "profile.html?member=Eve" },
+                { name: "Frank", profileLink: "profile.html?member=Frank" }
+            ]
+        };
+
+        function getGroupNameFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('group');
+        }
+
+        function displayMembers() {
+            const groupName = getGroupNameFromURL();
+            document.getElementById("group-name").textContent = groupName;
+            const members = groupMembers[groupName];
+            const memberListElement = document.getElementById("member-list");
+
+            members.forEach(member => {
+                const li = document.createElement("li");
+                const link = document.createElement("a");
+                link.href = member.profileLink;
+                link.textContent = member.name;
+                li.appendChild(link);
+                memberListElement.appendChild(li);
+            });
         }
 
         function goBack() {
