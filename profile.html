@@ -3,37 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="styles5.css">
-    <script src="script5.js" defer></script>
+    <title>Group System - Member Profile</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    
-        <div class="profile-header">
-            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-            <h1 class="profile-name">John Doe</h1>
-            <p class="profile-bio">Web Developer & Designer</p>
-        </div>
-        <div class="profile-details">
-            <h2>About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies metus ac eros bibendum, vel dapibus ligula pellentesque.</p>
-
-            <h2>Contact Information</h2>
-            <ul>
-                <li>Email: johndoe@example.com</li>
-                <li>Phone: +1234567890</li>
-                <li>Website: www.johndoe.com</li>
-            </ul>
-
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML & CSS</li>
-                <li>JavaScript</li>
-                <li>React.js</li>
-                <li>Node.js</li>
-            </ul>
-        </div>
+    <!-- Member Profile -->
+    <div class="profile-container">
+        <h2>Profile of <span id="member-name"></span></h2>
+        <p id="member-info"></p>
+        <button onclick="goBack()">Back to Member List</button>
     </div>
+
+    <script>
+        const memberDetails = {
+            "Alice": "Alice is a software engineer with 5 years of experience.",
+            "Bob": "Bob is a graphic designer and illustrator.",
+            "Charlie": "Charlie is a data scientist specializing in AI.",
+            "Dave": "Dave is a front-end developer and UI/UX designer.",
+            "Eve": "Eve is a project manager with a background in agile methodologies.",
+            "Frank": "Frank is a cybersecurity expert with a decade of experience."
+        };
+
+        function getMemberNameFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('member');
+        }
+
+        function displayMemberInfo() {
+            const memberName = getMemberNameFromURL();
+            document.getElementById("member-name").textContent = memberName;
+            document.getElementById("member-info").textContent = memberDetails[memberName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Initialize page content
+        displayMemberInfo();
+    </script>
 </body>
 </html>
