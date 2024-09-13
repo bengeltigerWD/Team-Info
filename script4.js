@@ -1,5 +1,5 @@
 const groups = {
-    "Group A": { password: "123", members: ["Alice", "Bob"], bios: { "Alice": "Bio of Alice", "Bob": "Bio of Bob" }},
+    "Best Friend Group ": { password: "123", members: ["Alice", "Bob"], bios: { "Alice": "Bio of Alice", "Bob": "Bio of Bob" }},
     "Group B": { password: "456", members: ["Charlie", "Dave"], bios: { "Charlie": "Bio of Charlie", "Dave": "Bio of Dave" }},
     "Group C": { password: "789", members: ["Eve", "Frank"], bios: { "Eve": "Bio of Eve", "Frank": "Bio of Frank" }},
 };
