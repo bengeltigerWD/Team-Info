@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group System - Member Profile</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles0.css">
 </head>
 <body>
     <!-- Member Profile -->
@@ -71,14 +71,16 @@
         function displayMemberInfo() {
             const memberName = getMemberNameFromURL();
             const details = memberDetails[memberName];
-            if (details) {
+
+            // Prevent multiple updates by checking if member data is already filled
+            if (details && !document.getElementById("member-name").textContent) {
                 document.getElementById("member-photo").src = details.photo;
                 document.getElementById("member-photo").alt = `${memberName}'s Photo`;
                 document.getElementById("member-name").textContent = memberName;
                 document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
                 document.getElementById("member-job").textContent = `Job: ${details.job}`;
                 document.getElementById("member-email").textContent = `Email: ${details.email}`;
-            } else {
+            } else if (!details) {
                 document.getElementById("member-name").textContent = "Member not found";
             }
         }
@@ -87,196 +89,8 @@
             window.history.back();
         }
 
-        // Initialize page content
-        displayMemberInfo();
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Member Profile</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Member Profile -->
-    <div class="profile-container">
-        <img id="member-photo" src="" alt="Member Photo" class="profile-photo">
-        <h2 id="member-name"></h2>
-        <p id="member-mobile"></p>
-        <p id="member-job"></p>
-        <p id="member-email"></p>
-        <button onclick="goBack()">Back to Member List</button>
-    </div>
-
-    <script>
-        const memberDetails = {
-            "Ajmir": {
-                photo: "ajmir.jpg",
-                mobile: "123-456-7890",
-                job: "Student",
-                email: "ajmir@example.com"
-            },
-            "Rahat": {
-                photo: "rahat.jpg",
-                mobile: "234-567-8901",
-                job: "Student",
-                email: "rahat@example.com"
-            },
-            "Asik": {
-                photo: "asik.jpg",
-                mobile: "345-678-9012",
-                job: "Student",
-                email: "asik@example.com"
-            },
-            "Sornojit": {
-                photo: "sornojit.jpg",
-                mobile: "456-789-0123",
-                job: "Student",
-                email: "sornojit@example.com"
-            },
-            "Zim": {
-                photo: "zim.jpg",
-                mobile: "567-890-1234",
-                job: "Student",
-                email: "zim@example.com"
-            },
-            "Naim": {
-                photo: "naim.jpg",
-                mobile: "678-901-2345",
-                job: "Student",
-                email: "naim@example.com"
-            },
-            "Siam": {
-                photo: "siam.jpg",
-                mobile: "789-012-3456",
-                job: "Student",
-                email: "siam@example.com"
-            }
-        };
-
-        function getMemberNameFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('member');
-        }
-
-        function displayMemberInfo() {
-            const memberName = getMemberNameFromURL();
-            const details = memberDetails[memberName];
-            if (details) {
-                document.getElementById("member-photo").src = details.photo;
-                document.getElementById("member-photo").alt = `${memberName}'s Photo`;
-                document.getElementById("member-name").textContent = memberName;
-                document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
-                document.getElementById("member-job").textContent = `Job: ${details.job}`;
-                document.getElementById("member-email").textContent = `Email: ${details.email}`;
-            } else {
-                document.getElementById("member-name").textContent = "Member not found";
-            }
-        }
-
-        function goBack() {
-            window.history.back();
-        }
-
-        // Initialize page content
-        displayMemberInfo();
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Member Profile</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Member Profile -->
-    <div class="profile-container">
-        <img id="member-photo" src="" alt="Member Photo" class="profile-photo">
-        <h2 id="member-name"></h2>
-        <p id="member-mobile"></p>
-        <p id="member-job"></p>
-        <p id="member-email"></p>
-        <button onclick="goBack()">Back to Member List</button>
-    </div>
-
-    <script>
-        const memberDetails = {
-            "Ajmir": {
-                photo: "ajmir.jpg",
-                mobile: "123-456-7890",
-                job: "Student",
-                email: "ajmir@example.com"
-            },
-            "Rahat": {
-                photo: "rahat.jpg",
-                mobile: "234-567-8901",
-                job: "Student",
-                email: "rahat@example.com"
-            },
-            "Asik": {
-                photo: "asik.jpg",
-                mobile: "345-678-9012",
-                job: "Student",
-                email: "asik@example.com"
-            },
-            "Sornojit": {
-                photo: "sornojit.jpg",
-                mobile: "456-789-0123",
-                job: "Student",
-                email: "sornojit@example.com"
-            },
-            "Zim": {
-                photo: "zim.jpg",
-                mobile: "567-890-1234",
-                job: "Student",
-                email: "zim@example.com"
-            },
-            "Naim": {
-                photo: "naim.jpg",
-                mobile: "678-901-2345",
-                job: "Student",
-                email: "naim@example.com"
-            },
-            "Siam": {
-                photo: "siam.jpg",
-                mobile: "789-012-3456",
-                job: "Student",
-                email: "siam@example.com"
-            }
-        };
-
-        function getMemberNameFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('member');
-        }
-
-        function displayMemberInfo() {
-            const memberName = getMemberNameFromURL();
-            const details = memberDetails[memberName];
-            if (details) {
-                document.getElementById("member-photo").src = details.photo;
-                document.getElementById("member-photo").alt = `${memberName}'s Photo`;
-                document.getElementById("member-name").textContent = memberName;
-                document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
-                document.getElementById("member-job").textContent = `Job: ${details.job}`;
-                document.getElementById("member-email").textContent = `Email: ${details.email}`;
-            } else {
-                document.getElementById("member-name").textContent = "Member not found";
-            }
-        }
-
-        function goBack() {
-            window.history.back();
-        }
-
-        // Initialize page content
-        displayMemberInfo();
+        // Initialize page content on load
+        window.onload = displayMemberInfo;
     </script>
 </body>
 </html>
