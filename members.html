@@ -18,77 +18,6 @@
         const groupMembers = {
             "Best Friend Group": [
                 { name: "Ajmir Ahmed", profileLink: "profile.html?member=Ajmir" },
-                { name: "Mahmudul Hasan Rahat", profileLink: "profile.html?member=Rahat" },
-                { name: "Mahmudul Hasan Asik", profileLink: "profile.html?member=Asik" },
-                { name: "Sornojit Biswasas", profileLink: "profile.html?member=Sornojit" },
-                { name: "Md Zim", profileLink: "profile.html?member=Zim" },
-                { name: "Md Sharia Naim", profileLink: "profile.html?member=Naim" },
-                { name: "Siam Hasan", profileLink: "profile.html?member=Siam" }
-            ],
-            "Group A": [
-                { name: "Alice", profileLink: "profile.html?member=Alice" },
-                { name: "Bob", profileLink: "profile.html?member=Bob" }
-            ],
-            "Group B": [
-                { name: "Charlie", profileLink: "profile.html?member=Charlie" },
-                { name: "Dave", profileLink: "profile.html?member=Dave" }
-            ],
-            "Group C": [
-                { name: "Eve", profileLink: "profile.html?member=Eve" },
-                { name: "Frank", profileLink: "profile.html?member=Frank" }
-            ]
-        };
-
-        function getGroupNameFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('group');
-        }
-
-        function displayMembers() {
-            const groupName = getGroupNameFromURL();
-            document.getElementById("group-name").textContent = groupName;
-            const members = groupMembers[groupName];
-            const memberListElement = document.getElementById("member-list");
-
-            members.forEach(member => {
-                const li = document.createElement("li");
-                const link = document.createElement("a");
-                link.href = member.profileLink;
-                link.textContent = member.name;
-                li.appendChild(link);
-                memberListElement.appendChild(li);
-            });
-        }
-
-        function goBack() {
-            window.history.back();
-        }
-
-        // Initialize page content
-        displayMembers();
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Member List</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Member List -->
-    <div class="member-container">
-        <h2>Members of <span id="group-name"></span></h2>
-        <ul id="member-list"></ul>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <script>
-        const groupMembers = {
-            "Best Friend Group": [
-                { name: "Ajmir Ahmed", profileLink: "profile.html?member=Ajmir" },
                 { name: "Mahmudul Hasab Rahat", profileLink: "profile.html?member=Rahat" },
                 { name: "Md Asik", profileLink: "profile.html?member=Asik" },
                 { name: "Sornojit Das", profileLink: "profile.html?member=Sornojit" },
@@ -117,160 +46,32 @@
 
         function displayMembers() {
             const groupName = getGroupNameFromURL();
+            
+            // Clear previous content to prevent duplicates
+            document.getElementById("group-name").textContent = '';
+            document.getElementById("member-list").innerHTML = '';
+
+            // Update the group name
             document.getElementById("group-name").textContent = groupName;
+
             const members = groupMembers[groupName];
             const memberListElement = document.getElementById("member-list");
 
-            members.forEach(member => {
+            if (members) {
+                members.forEach(member => {
+                    const li = document.createElement("li");
+                    const link = document.createElement("a");
+                    link.href = member.profileLink;
+                    link.textContent = member.name;
+                    li.appendChild(link);
+                    memberListElement.appendChild(li);
+                });
+            } else {
+                // Show a message if no members are found for the group
                 const li = document.createElement("li");
-                const link = document.createElement("a");
-                link.href = member.profileLink;
-                link.textContent = member.name;
-                li.appendChild(link);
+                li.textContent = "No members found for this group.";
                 memberListElement.appendChild(li);
-            });
-        }
-
-        function goBack() {
-            window.history.back();
-        }
-
-        // Initialize page content
-        displayMembers();
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Member List</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Member List -->
-    <div class="member-container">
-        <h2>Members of <span id="group-name"></span></h2>
-        <ul id="member-list"></ul>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <script>
-        const groupMembers = {
-            "Best Friend Group": [
-                { name: "Ajmir Ahmed", profileLink: "profile.html?member=Ajmir" },
-                { name: "Mahmudul Hasab Rahat", profileLink: "profile.html?member=Rahat" },
-                { name: "Md Asik", profileLink: "profile.html?member=Asik" },
-                { name: "Sornojit Das", profileLink: "profile.html?member=Sornojit" },
-                { name: "Md Zim", profileLink: "profile.html?member=Zim" },
-                { name: "Md Naim", profileLink: "profile.html?member=Naim" },
-                { name: "Siam Islam", profileLink: "profile.html?member=Siam" }
-            ],
-            "Group A": [
-                { name: "Alice", profileLink: "profile.html?member=Alice" },
-                { name: "Bob", profileLink: "profile.html?member=Bob" }
-            ],
-            "Group B": [
-                { name: "Charlie", profileLink: "profile.html?member=Charlie" },
-                { name: "Dave", profileLink: "profile.html?member=Dave" }
-            ],
-            "Group C": [
-                { name: "Eve", profileLink: "profile.html?member=Eve" },
-                { name: "Frank", profileLink: "profile.html?member=Frank" }
-            ]
-        };
-
-        function getGroupNameFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('group');
-        }
-
-        function displayMembers() {
-            const groupName = getGroupNameFromURL();
-            document.getElementById("group-name").textContent = groupName;
-            const members = groupMembers[groupName];
-            const memberListElement = document.getElementById("member-list");
-
-            members.forEach(member => {
-                const li = document.createElement("li");
-                const link = document.createElement("a");
-                link.href = member.profileLink;
-                link.textContent = member.name;
-                li.appendChild(link);
-                memberListElement.appendChild(li);
-            });
-        }
-
-        function goBack() {
-            window.history.back();
-        }
-
-        // Initialize page content
-        displayMembers();
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Member List</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Member List -->
-    <div class="member-container">
-        <h2>Members of <span id="group-name"></span></h2>
-        <ul id="member-list"></ul>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <script>
-        const groupMembers = {
-            "Best Friend Group": [
-                { name: "Ajmir Ahmed", profileLink: "profile.html?member=Ajmir" },
-                { name: "Mahmudul Hasab Rahat", profileLink: "profile.html?member=Rahat" },
-                { name: "Md Asik", profileLink: "profile.html?member=Asik" },
-                { name: "Sornojit Das", profileLink: "profile.html?member=Sornojit" },
-                { name: "Md Zim", profileLink: "profile.html?member=Zim" },
-                { name: "Md Naim", profileLink: "profile.html?member=Naim" },
-                { name: "Siam Islam", profileLink: "profile.html?member=Siam" }
-            ],
-            "Group A": [
-                { name: "Alice", profileLink: "profile.html?member=Alice" },
-                { name: "Bob", profileLink: "profile.html?member=Bob" }
-            ],
-            "Group B": [
-                { name: "Charlie", profileLink: "profile.html?member=Charlie" },
-                { name: "Dave", profileLink: "profile.html?member=Dave" }
-            ],
-            "Group C": [
-                { name: "Eve", profileLink: "profile.html?member=Eve" },
-                { name: "Frank", profileLink: "profile.html?member=Frank" }
-            ]
-        };
-
-        function getGroupNameFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('group');
-        }
-
-        function displayMembers() {
-            const groupName = getGroupNameFromURL();
-            document.getElementById("group-name").textContent = groupName;
-            const members = groupMembers[groupName];
-            const memberListElement = document.getElementById("member-list");
-
-            members.forEach(member => {
-                const li = document.createElement("li");
-                const link = document.createElement("a");
-                link.href = member.profileLink;
-                link.textContent = member.name;
-                li.appendChild(link);
-                memberListElement.appendChild(li);
-            });
+            }
         }
 
         function goBack() {
