@@ -21,7 +21,7 @@
         /* Header with Navigation Buttons */
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             width: 100%;
             padding: 15px 30px;
@@ -39,6 +39,7 @@
             border-radius: 8px;
             transition: background-color 0.3s ease;
             font-weight: bold;
+            margin-right: 10px;
         }
 
         .header button:hover {
@@ -104,8 +105,8 @@
 
     <!-- Header with Navigation Buttons -->
     <div class="header">
-        <button onclick="goBack()">Back</button>
         <button onclick="goHome()">Home</button>
+        <button onclick="goBack()">Back</button>
     </div>
 
     <!-- Member Profile -->
