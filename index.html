@@ -4,14 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group System - Select Group</title>
-    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles4.css">
+    <style>
+        /* Modern styles for the index page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #0056b3;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .header p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+        #search-input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .group-list {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .group-card {
+            background-color: #ffffff;
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .group-card:hover {
+            background-color: #f0f8ff;
+            transform: scale(1.05);
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border-top: 5px solid #0056b3;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <!-- Site Name with Smart Border -->
-    <div class="site-name">
+    <div class="header">
         <h1>biopro.com</h1>
+        <p>Best Friend Group Messenger Group</p>
+        <p>Admin by Ajmir Ahmed</p>
     </div>
-
+    
     <!-- Search Bar -->
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
@@ -21,34 +105,15 @@
     <!-- Group List -->
     <div class="group-list" id="group-list">
         <h1>Select a Group</h1>
-        
-        <!-- Best Friend Group -->
         <div class="group-card" onclick="goToPasswordPage('Best Friend Group')">
             <h2>Best Friend Group</h2>
-            <p style="font-size: small;">Messenger Group</p>
-            <p style="font-size: small;">Admin by Ajmir Ahmed</p>
             <p>Click to view group members</p>
         </div>
-        
-        <!-- Group A -->
-        <div class="group-card" onclick="goToPasswordPage('Group A')">
-            <h2>Group A</h2>
-            <p style="font-size: small;">Messenger Group</p>
-            <p style="font-size: small;">Admin by Ajmir Ahmed</p>
-            <p>Click to view group members</p>
-        </div>
-        
-        <!-- Group B -->
-        <div class="group-card" onclick="goToPasswordPage('Group B')">
-            <h2>Group B</h2>
-            <p>Click to view group members</p>
-        </div>
-        
-        <!-- Group C -->
-        <div class="group-card" onclick="goToPasswordPage('Group C')">
-            <h2>Group C</h2>
-            <p>Click to view group members</p>
-        </div>
+    </div>
+
+    <div class="footer">
+        <p>Site Developer: Ajmir Ahmed</p>
+        <p>Company: Bengal Tiger Web Development</p>
     </div>
 
     <script>
