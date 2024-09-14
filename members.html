@@ -46,7 +46,7 @@
 
         function displayMembers() {
             const groupName = getGroupNameFromURL();
-            
+
             // Clear previous content to prevent duplicates
             document.getElementById("group-name").textContent = '';
             document.getElementById("member-list").innerHTML = '';
@@ -58,11 +58,11 @@
             const memberListElement = document.getElementById("member-list");
 
             if (members) {
-                members.forEach(member => {
+                members.forEach((member, index) => {
                     const li = document.createElement("li");
                     const link = document.createElement("a");
                     link.href = member.profileLink;
-                    link.textContent = member.name;
+                    link.textContent = `${index + 1}. ${member.name}`; // Adding numbering
                     li.appendChild(link);
                     memberListElement.appendChild(li);
                 });
