@@ -27,7 +27,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: black;
         }
 
         .menu-bar {
@@ -36,8 +35,8 @@
         }
 
         .menu-bar button {
-            background-color: white;
-            color: black;
+            background-color: transparent; /* Remove background */
+            color: black; /* Set text color to black */
             border: none;
             padding: 10px 15px;
             cursor: pointer;
@@ -46,7 +45,7 @@
         }
 
         .menu-bar button:hover {
-            background-color: #ddd;
+            background-color: #ddd; /* Optional hover effect */
         }
 
         .menu {
@@ -56,20 +55,18 @@
             position: absolute;
             top: 60px;
             left: 10px;
-            background-color: black; /* Black background for the menu */
-            color: white;
+            color: black; /* Black text */
             padding: 10px;
-            border-radius: 5px;
         }
 
         .menu a {
-            color: white;
+            color: black; /* Black menu item color */
             text-decoration: none;
             padding: 5px 0;
         }
 
         .menu a:hover {
-            background-color: #555;
+            background-color: #f0f0f0; /* Subtle hover effect */
             border-radius: 3px;
         }
 
@@ -84,6 +81,7 @@
             font-size: 16px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            background-color: white; /* Restore original color */
         }
 
         .group-list {
