@@ -1,160 +1,138 @@
-/* General Styles */
+/* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
     margin: 0;
     padding: 0;
-}
-
-h1, h2, h3 {
-    font-weight: 600;
+    color: #333;
 }
 
 a {
+    color: #007bff;
     text-decoration: none;
-    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
 }
 
 /* Menubar Styles */
 .menubar {
     display: flex;
     justify-content: center;
-    background-color: #0052cc;
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #007bff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menubar button {
-    background-color: transparent;
-    color: white;
+    background: none;
     border: none;
-    padding: 12px 30px;
-    cursor: pointer;
+    color: white;
     font-size: 16px;
-    margin: 0 10px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .menubar button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    color: #e1e1e1;
 }
 
-/* Site Name Styles */
+/* Site Name */
 .site-name {
     text-align: center;
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .site-name h1 {
-    font-size: 42px;
-    color: #007BFF;
-    padding: 15px;
-    background: linear-gradient(135deg, #0052cc, #6a11cb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: 4px solid #007BFF;
+    font-size: 36px;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 10px 20px;
     border-radius: 10px;
     display: inline-block;
-    padding: 20px 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.site-name h1:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Search Bar Styles */
 .search-container {
     display: flex;
     justify-content: center;
-    margin: 30px 0;
+    margin-bottom: 30px;
 }
 
 #search-input {
-    padding: 12px 20px;
+    padding: 10px;
     font-size: 16px;
-    border-radius: 50px;
+    border-radius: 5px;
     border: 1px solid #ddd;
-    width: 350px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-#search-input:focus {
-    outline: none;
-    border-color: #007BFF;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    width: 300px;
+    margin-right: 10px;
 }
 
 #search-button {
-    padding: 12px 25px;
-    font-size: 16px;
-    margin-left: 10px;
-    border: none;
-    background-color: #007BFF;
+    padding: 10px 20px;
+    background-color: #007bff;
     color: white;
-    border-radius: 50px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 #search-button:hover {
     background-color: #0056b3;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Group List Styles */
+/* Group Card Styles */
 .group-list {
     text-align: center;
-    padding: 40px 0;
+    padding: 20px;
 }
 
 .group-list h2 {
     font-size: 28px;
-    margin-bottom: 30px;
     color: #333;
+    margin-bottom: 20px;
 }
 
 .group-card {
     background-color: #ffffff;
-    border: 2px solid #007BFF;
-    border-radius: 12px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
     padding: 20px;
-    width: 100%;
-    max-width: 400px; /* Adjusted width for better fit on mobile */
-    margin: 20px auto;
+    margin: 10px auto;
+    width: calc(100% - 40px);
+    max-width: 600px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: auto; /* Adjusted height to accommodate content better */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.group-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .group-card h3 {
     font-size: 24px;
-    margin-bottom: 15px;
+    margin: 10px 0;
+    color: #007bff;
 }
 
-.group-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    background-color: #f0f8ff;
+.group-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
 }
 
 /* Footer Styles */
 .footer {
     text-align: center;
-    padding: 20px;
-    background-color: #0052cc;
+    padding: 15px;
+    background-color: #007bff;
     color: white;
     box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -164,50 +142,22 @@ a {
 
 .footer p {
     margin: 5px 0;
-    font-size: 14px; /* Reduced font size */
+    font-size: 14px;
     line-height: 1.5;
-    word-break: break-word; /* Ensures long words break to fit */
+    word-break: break-word;
 }
 
-/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
-    .footer {
-        padding: 15px;
-    }
-
     .footer p {
-        font-size: 12px; /* Further reduced font size for mobile */
+        font-size: 12px;
     }
-}
 
-
-/* Responsive Styles for Mobile */
-@media (max-width: 768px) {
     .group-card {
+        width: calc(100% - 20px);
         padding: 15px;
-        max-width: 90%;
-        width: auto; /* Ensure card width adjusts with max-width */
-    }
-
-    .group-card h3 {
-        font-size: 20px;
-    }
-
-    .group-card p {
-        font-size: 14px;
-    }
-
-    .site-name h1 {
-        font-size: 32px;
-        padding: 15px 30px;
     }
 
     #search-input {
-        width: 80%;
-    }
-
-    #search-button {
-        padding: 10px 20px;
-        font-size: 14px;
+        width: 200px;
     }
 }
