@@ -128,14 +128,15 @@ a {
     background-color: #ffffff;
     border: 2px solid #007BFF;
     border-radius: 12px;
-    padding: 30px;
+    padding: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px; /* Adjusted width for better fit on mobile */
     margin: 20px auto;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    height: auto; /* Adjusted height to accommodate content better */
 }
 
 .group-card h3 {
@@ -169,8 +170,9 @@ a {
 /* Responsive Styles for Mobile */
 @media (max-width: 768px) {
     .group-card {
-        padding: 20px;
+        padding: 15px;
         max-width: 90%;
+        width: auto; /* Ensure card width adjusts with max-width */
     }
 
     .group-card h3 {
