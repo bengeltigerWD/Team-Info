@@ -16,20 +16,21 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        /* Site name back to original style */
         .site-name {
-            background: linear-gradient(45deg, #007BFF, #0056b3);
+            background-color: #007BFF;
             color: #fff;
             text-align: center;
             padding: 20px;
-            border-bottom: 5px solid #003d7a;
+            border-bottom: 3px solid #003d7a;
         }
         .site-name h1 {
             margin: 0;
-            font-size: 36px;
-            font-weight: bold;
+            font-size: 32px;
+            font-weight: normal;
         }
 
-        /* Menu and button styles */
+        /* Menu and search bar */
         .menu-bar {
             display: flex;
             justify-content: space-between;
@@ -39,7 +40,7 @@
             color: white;
         }
         .hamburger {
-            font-size: 30px;
+            font-size: 25px;
             cursor: pointer;
             color: white;
         }
@@ -67,28 +68,24 @@
         .side-menu.active {
             left: 0;
         }
-        .menu-header {
-            font-size: 20px;
-            font-weight: bold;
-            margin: 10px 0;
-            padding: 10px;
-        }
 
         /* Search Bar */
         .search-container {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin: 20px;
         }
         #search-input {
             padding: 10px;
-            font-size: 16px;
+            font-size: 14px; /* Reduced font size */
             border-radius: 5px;
             border: 1px solid #ddd;
             width: 300px;
         }
         button {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 14px; /* Reduced font size */
             cursor: pointer;
             background-color: #007BFF;
             color: #fff;
@@ -142,10 +139,16 @@
 </head>
 <body>
 
-    <!-- Menu bar -->
-    <div class="menu-bar">
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <!-- Site Name -->
+    <div class="site-name">
         <h1>biopro.com</h1>
+    </div>
+
+    <!-- Menu and Search Bar -->
+    <div class="search-container">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
+        <button onclick="searchGroups()">Search</button>
     </div>
 
     <!-- Side Menu -->
@@ -154,12 +157,6 @@
         <a href="#">Home</a>
         <a href="#">Contact</a>
         <a href="#">Information</a>
-    </div>
-
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
-        <button onclick="searchGroups()">Search</button>
     </div>
 
     <!-- Group List -->
@@ -206,4 +203,3 @@
     </script>
 </body>
 </html>
-
