@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles0.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
@@ -30,20 +30,21 @@
         }
 
         .header button {
-            background-color: #61dafb; /* Soft blue color */
-            color: #fff; /* Text color */
-            border: none;
+            background-color: transparent; /* No background */
+            color: white;
+            border: 2px solid #61dafb; /* Soft blue border */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: bold;
             margin-right: 10px;
         }
 
         .header button:hover {
-            background-color: #21a1f1; /* Darker blue on hover */
+            background-color: #61dafb; /* Soft blue background on hover */
+            color: #fff; /* Keep text white */
         }
 
         .profile-container {
@@ -51,10 +52,15 @@
             padding: 30px;
             background-color: #ffffff;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
             margin: 40px auto;
+            transition: all 0.3s ease;
+        }
+
+        .profile-container:hover {
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
         }
 
         .profile-photo {
@@ -64,6 +70,11 @@
             object-fit: cover;
             margin-bottom: 25px;
             border: 5px solid #007BFF;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
         }
 
         h2 {
