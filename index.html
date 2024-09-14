@@ -9,161 +9,126 @@
         /* Modern styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: #f4f4f4;
         }
-        
-        /* Site name */
+
         .site-name {
-            background-color: #007BFF;
-            color: #fff;
             text-align: center;
             padding: 20px;
-            border-bottom: 3px solid #003d7a;
-        }
-        .site-name h1 {
-            margin: 0;
-            font-size: 32px;
-            font-weight: normal;
-        }
-
-        /* Menu and search bar */
-        .menu-bar {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
             background-color: #007BFF;
-            padding: 10px;
             color: white;
-        }
-        .hamburger {
-            font-size: 25px;
-            cursor: pointer;
-            color: white;
+            font-size: 24px;
         }
 
-        /* Side menu - background color set to black */
-        .side-menu {
-            position: fixed;
-            left: -250px;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background-color: #000; /* Menu background set to black */
-            color: white;
-            transition: left 0.3s;
-            padding-top: 60px;
-            z-index: 1000;
-        }
-        .side-menu a {
-            padding: 15px 30px;
-            text-decoration: none;
-            color: white;
-            display: block;
-            transition: background 0.3s;
-        }
-        .side-menu a:hover {
-            background-color: #575757;
-        }
-        .side-menu.active {
-            left: 0;
-        }
-
-        /* Search Bar */
         .search-container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            text-align: center;
             margin: 20px;
         }
+
         #search-input {
             padding: 10px;
-            font-size: 14px; /* Reduced font size */
-            border-radius: 5px;
-            border: 1px solid #ddd;
             width: 300px;
-            margin-left: 20px; /* Adding space between the menu and search */
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 14px; /* Reduced font size */
-            cursor: pointer;
-            background-color: #007BFF;
-            color: #fff;
+
+        .menu-bar {
+            background-color: black; /* Changed to black */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .menu-bar .menu {
+            display: none; /* Hidden by default, visible on button click */
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background-color: black; /* Black background for the menu */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu-bar button {
+            background-color: white;
+            color: black;
             border: none;
+            padding: 10px 15px;
+            cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
-            margin-left: 10px;
-        }
-        button:hover {
-            background-color: #0056b3;
         }
 
-        /* Group List */
+        .menu-bar button:hover {
+            background-color: #ddd;
+        }
+
+        .menu-bar .menu a {
+            color: white; /* Text color for menu items */
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .menu-bar .menu a:hover {
+            background-color: #555;
+            border-radius: 3px;
+        }
+
         .group-list {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
-        .group-card {
-            background-color: #ffffff;
-            border: 2px solid #007BFF;
-            border-radius: 8px;
-            padding: 20px;
-            width: 300px;
             text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #007BFF;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            margin: 10px 0;
-        }
-        .group-card:hover {
-            background-color: #f0f8ff;
-            transform: scale(1.05);
+            padding: 20px;
         }
 
-        /* Footer */
+        .group-card {
+            background-color: white;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            width: 250px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        .group-card:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
         .footer {
             text-align: center;
-            padding: 20px;
-            background-color: #007BFF;
-            color: #fff;
-            border-top: 5px solid #003d7a;
-            margin-top: auto;
-        }
-        .footer p {
-            margin: 5px 0;
+            margin-top: 20px;
+            padding: 10px;
+            color: #555;
         }
     </style>
 </head>
 <body>
-
     <!-- Site Name -->
     <div class="site-name">
         <h1>biopro.com</h1>
     </div>
 
-    <!-- Menu and Search Bar -->
-    <div class="search-container">
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
-        <button onclick="searchGroups()">Search</button>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <button onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="info.html">Information</a>
+        </div>
     </div>
 
-    <!-- Side Menu -->
-    <div id="side-menu" class="side-menu">
-        <a href="javascript:void(0)" class="menu-header" onclick="toggleMenu()">Close &times;</a>
-        <a href="#">Home</a>
-        <a href="#">Contact</a>
-        <a href="#">Information</a>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
     </div>
 
     <!-- Group List -->
@@ -179,21 +144,12 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
-        <p>Site Developer: Ajmir Ahmed</p>
-        <p>Company: Bengal Tiger Web Development</p>
+        <p>Site developer: Ajmir Ahmed | Company: Bengal Tiger Web Development</p>
     </div>
 
     <script>
-        function toggleMenu() {
-            const sideMenu = document.getElementById('side-menu');
-            if (sideMenu.classList.contains('active')) {
-                sideMenu.classList.remove('active');
-            } else {
-                sideMenu.classList.add('active');
-            }
-        }
-
         function goToPasswordPage(groupName) {
             window.location.href = `password.html?group=${encodeURIComponent(groupName)}`;
         }
@@ -206,6 +162,11 @@
                 const groupName = card.querySelector('h2').textContent.toLowerCase();
                 card.style.display = groupName.includes(input) ? 'block' : 'none';
             });
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
     </script>
 </body>
