@@ -4,129 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group System - Member Profile</title>
-    <link rel="stylesheet" href="styles0.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        /* Header with Navigation Buttons */
-        .header {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            width: 100%;
-            padding: 15px 30px;
-            background-color: #282c34;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header button {
-            background-color: transparent; /* No background */
-            color: white;
-            border: 2px solid #61dafb; /* Soft blue border */
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .header button:hover {
-            background-color: #61dafb; /* Soft blue background on hover */
-            color: #fff; /* Keep text white */
-        }
-
-        .profile-container {
-            text-align: center;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            margin: 40px auto;
-            transition: all 0.3s ease;
-        }
-
-        .profile-container:hover {
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .profile-photo {
-            border-radius: 50%;
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            margin-bottom: 25px;
-            border: 5px solid #007BFF;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.05); /* Slight zoom on hover */
-        }
-
-        h2 {
-            margin-bottom: 15px;
-            color: #333;
-            font-size: 28px;
-        }
-
-        p {
-            font-size: 18px;
-            color: #555;
-            margin: 5px 0;
-        }
-
-        .info-title {
-            font-weight: bold;
-            color: #007BFF;
-        }
-
-        /* Profile Button */
-        button {
-            margin-top: 30px;
-            padding: 12px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Linked updated external CSS -->
 </head>
 <body>
 
     <!-- Header with Navigation Buttons -->
-    <div class="header">
-        <button onclick="goHome()">Home</button>
-        <button onclick="goBack()">Back</button>
-    </div>
+    <header class="header">
+        <button class="home-btn" onclick="goHome()">Home</button>
+        <button class="back-btn" onclick="goBack()">Back</button>
+    </header>
 
-    <!-- Member Profile -->
+    <!-- Member Profile Section -->
     <div class="profile-container">
-        <img id="member-photo" src="" alt="Member Photo" class="profile-photo">
-        <h2 id="member-name"></h2>
-        <p><span class="info-title">Mobile:</span> <span id="member-mobile"></span></p>
-        <p><span class="info-title">Job:</span> <span id="member-job"></span></p>
-        <p><span class="info-title">Email:</span> <span id="member-email"></span></p>
+        <div class="profile-card">
+            <img id="member-photo" src="" alt="Member Photo" class="profile-photo">
+            <h2 id="member-name"></h2>
+            <div class="member-details">
+                <p id="member-mobile"></p>
+                <p id="member-job"></p>
+                <p id="member-email"></p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -187,9 +85,9 @@
                 document.getElementById("member-photo").src = details.photo;
                 document.getElementById("member-photo").alt = `${memberName}'s Photo`;
                 document.getElementById("member-name").textContent = memberName;
-                document.getElementById("member-mobile").textContent = details.mobile;
-                document.getElementById("member-job").textContent = details.job;
-                document.getElementById("member-email").textContent = details.email;
+                document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
+                document.getElementById("member-job").textContent = `Job: ${details.job}`;
+                document.getElementById("member-email").textContent = `Email: ${details.email}`;
             } else {
                 document.getElementById("member-name").textContent = "Member not found";
             }
@@ -200,11 +98,12 @@
         }
 
         function goHome() {
-            window.location.href = 'index.html'; // Adjust this URL to your home page
+            window.location.href = 'index.html';
         }
 
         // Initialize page content
         displayMemberInfo();
     </script>
+
 </body>
 </html>
