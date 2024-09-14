@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio-Info.com</title>
+    <title>Group System - Select Group</title>
     <link rel="stylesheet" href="styles1.css">
     <style>
-        /* Modern styles for the index page */
+        /* Modern styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -28,6 +28,53 @@
             font-size: 36px;
             font-weight: bold;
         }
+
+        /* Menu and button styles */
+        .menu-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007BFF;
+            padding: 10px;
+            color: white;
+        }
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+        .side-menu {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            transition: left 0.3s;
+            padding-top: 60px;
+        }
+        .side-menu a {
+            padding: 15px 30px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+        .side-menu a:hover {
+            background-color: #575757;
+        }
+        .side-menu.active {
+            left: 0;
+        }
+        .menu-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        /* Search Bar */
         .search-container {
             text-align: center;
             margin: 20px;
@@ -52,6 +99,8 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        /* Group List */
         .group-list {
             display: flex;
             justify-content: center;
@@ -77,6 +126,7 @@
             background-color: #f0f8ff;
             transform: scale(1.05);
         }
+
         .footer {
             text-align: center;
             padding: 20px;
@@ -91,14 +141,24 @@
     </style>
 </head>
 <body>
-    <!-- Site Name with Smart Border -->
-    <div class="site-name">
-        <h1>bioinfo.com</h1>
+
+    <!-- Menu bar -->
+    <div class="menu-bar">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <h1>biopro.com</h1>
+    </div>
+
+    <!-- Side Menu -->
+    <div id="side-menu" class="side-menu">
+        <a href="javascript:void(0)" class="menu-header" onclick="toggleMenu()">Close &times;</a>
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">Information</a>
     </div>
 
     <!-- Search Bar -->
     <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search group......" onkeyup="searchGroups()">
+        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
         <button onclick="searchGroups()">Search</button>
     </div>
 
@@ -117,10 +177,19 @@
 
     <div class="footer">
         <p>Site Developer: Ajmir Ahmed</p>
-        <p>Seo of Bengal Tiger Web Development</p>
+        <p>Company: Bengal Tiger Web Development</p>
     </div>
 
     <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('side-menu');
+            if (sideMenu.classList.contains('active')) {
+                sideMenu.classList.remove('active');
+            } else {
+                sideMenu.classList.add('active');
+            }
+        }
+
         function goToPasswordPage(groupName) {
             window.location.href = `password.html?group=${encodeURIComponent(groupName)}`;
         }
@@ -137,3 +206,4 @@
     </script>
 </body>
 </html>
+
