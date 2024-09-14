@@ -153,7 +153,7 @@ a {
 /* Footer Styles */
 .footer {
     text-align: center;
-    padding: 30px;
+    padding: 20px;
     background-color: #0052cc;
     color: white;
     box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
@@ -164,8 +164,22 @@ a {
 
 .footer p {
     margin: 5px 0;
-    font-size: 14px;
+    font-size: 14px; /* Reduced font size */
+    line-height: 1.5;
+    word-break: break-word; /* Ensures long words break to fit */
 }
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px;
+    }
+
+    .footer p {
+        font-size: 12px; /* Further reduced font size for mobile */
+    }
+}
+
 
 /* Responsive Styles for Mobile */
 @media (max-width: 768px) {
