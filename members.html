@@ -5,12 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group System - Member List</title>
     <link rel="stylesheet" href="styles6.css">
+    <style>
+        /* Style to make member list inline */
+        .member-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .member-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap; /* Prevents wrapping */
+            justify-content: center;
+            overflow-x: auto; /* Allows horizontal scrolling if needed */
+            gap: 15px; /* Adjusts spacing between members */
+        }
+        .member-list a {
+            text-decoration: none;
+            color: #007BFF; /* Blue color for links */
+            font-weight: bold;
+        }
+        .member-list a:hover {
+            text-decoration: underline;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <!-- Member List -->
     <div class="member-container">
         <h2>Members of <span id="group-name"></span></h2>
-        <ul id="member-list"></ul>
+        <div id="member-list" class="member-list"></div>
         <button onclick="goBack()">Back</button>
     </div>
 
@@ -58,19 +94,17 @@
             const memberListElement = document.getElementById("member-list");
 
             if (members) {
-                members.forEach((member, index) => {
-                    const li = document.createElement("li");
+                members.forEach((member) => {
                     const link = document.createElement("a");
                     link.href = member.profileLink;
-                    link.textContent = `${index + 1}. ${member.name}`; // Adding numbering
-                    li.appendChild(link);
-                    memberListElement.appendChild(li);
+                    link.textContent = member.name;
+                    memberListElement.appendChild(link);
                 });
             } else {
                 // Show a message if no members are found for the group
-                const li = document.createElement("li");
-                li.textContent = "No members found for this group.";
-                memberListElement.appendChild(li);
+                const message = document.createElement("p");
+                message.textContent = "No members found for this group.";
+                memberListElement.appendChild(message);
             }
         }
 
