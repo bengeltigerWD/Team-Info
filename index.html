@@ -4,147 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group System - Select Group</title>
-    <link rel="stylesheet" href="styles1.css">
-    <style>
-        /* Modern styles for the index page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        .site-name {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .site-name h1 {
-            font-size: 36px;
-            color: #007BFF;
-            margin: 0;
-        }
-
-        .menubar {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .menubar button {
-            background-color: #000;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .menubar button:hover {
-            background-color: #333;
-        }
-
-        .search-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        #search-input {
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #007BFF;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        #search-button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #search-button:hover {
-            background-color: #0056b3;
-        }
-
-        .group-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .group-card {
-            background-color: #ffffff;
-            border: 2px solid #007BFF;
-            border-radius: 8px;
-            padding: 20px;
-            width: 300px;
-            margin: 10px 0;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .group-card:hover {
-            background-color: #f0f8ff;
-            transform: scale(1.05);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .footer p {
-            font-size: 14px;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the updated external CSS -->
 </head>
 <body>
     <!-- Menubar -->
-    <div class="menubar">
+    <nav class="menubar">
         <button onclick="goToPage('index.html')">Home</button>
         <button onclick="goToPage('contact.html')">Contact</button>
         <button onclick="goToPage('info.html')">Information</button>
-    </div>
+    </nav>
 
     <!-- Site Name -->
-    <div class="site-name">
+    <header class="site-name">
         <h1>biopro.com</h1>
-    </div>
+    </header>
 
     <!-- Search Bar -->
-    <div class="search-container">
+    <section class="search-container">
         <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
         <button id="search-button" onclick="searchGroups()">Search</button>
-    </div>
+    </section>
 
     <!-- Group List -->
-    <div class="group-list" id="group-list">
-        <h1>Select a Group</h1>
+    <main class="group-list" id="group-list">
+        <h2>Select a Group</h2>
         <div class="group-card" onclick="goToPasswordPage('Best Friend Group')">
-            <h2>Best Friend Group</h2>
-            <p style="font-size: small;">Messenger Group</p>
-            <p style="font-size: small;">Admin by Ajmir Ahmed</p>
+            <h3>Best Friend Group</h3>
+            <p>Messenger Group</p>
+            <p>Admin by Ajmir Ahmed</p>
             <p>Click to view group members</p>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <div class="footer">
+    <footer class="footer">
         <p>Site Developer: Ajmir Ahmed</p>
         <p>Company: Bengal Tiger Web Development</p>
-    </div>
+    </footer>
 
     <script>
         function goToPage(page) {
@@ -160,7 +56,7 @@
             const groupCards = document.querySelectorAll('.group-card');
 
             groupCards.forEach(card => {
-                const groupName = card.querySelector('h2').textContent.toLowerCase();
+                const groupName = card.querySelector('h3').textContent.toLowerCase();
                 card.style.display = groupName.includes(input) ? 'block' : 'none';
             });
         }
