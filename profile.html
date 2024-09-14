@@ -20,7 +20,7 @@
     <script>
         const memberDetails = {
             "Ajmir": {
-                photo: "ajmir.png",
+                photo: "ajmir.jpg",
                 mobile: "123-456-7890",
                 job: "Student",
                 email: "ajmir@example.com"
@@ -71,16 +71,14 @@
         function displayMemberInfo() {
             const memberName = getMemberNameFromURL();
             const details = memberDetails[memberName];
-
-            // Prevent multiple updates by checking if member data is already filled
-            if (details && !document.getElementById("member-name").textContent) {
+            if (details) {
                 document.getElementById("member-photo").src = details.photo;
                 document.getElementById("member-photo").alt = `${memberName}'s Photo`;
                 document.getElementById("member-name").textContent = memberName;
                 document.getElementById("member-mobile").textContent = `Mobile: ${details.mobile}`;
                 document.getElementById("member-job").textContent = `Job: ${details.job}`;
                 document.getElementById("member-email").textContent = `Email: ${details.email}`;
-            } else if (!details) {
+            } else {
                 document.getElementById("member-name").textContent = "Member not found";
             }
         }
@@ -89,8 +87,8 @@
             window.history.back();
         }
 
-        // Initialize page content on load
-        window.onload = displayMemberInfo;
+        // Initialize page content
+        displayMemberInfo();
     </script>
 </body>
 </html>
