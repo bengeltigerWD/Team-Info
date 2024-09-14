@@ -1,68 +1,57 @@
-/* General Reset */
-* {
+/* Modern and Fresh Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Body Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e0e0e0, #ffffff);
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Menubar */
-.menubar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #007BFF;
-    padding: 10px;
+nav.menubar {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #007BFF;
+    padding: 10px;
 }
 
-.menubar button {
-    background-color: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    padding: 10px 20px;
+nav.menubar button {
+    background-color: #fff;
+    color: #007BFF;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s;
 }
 
-.menubar button:hover {
-    background-color: #ffffff;
-    color: #007BFF;
+nav.menubar button:hover {
+    background-color: #e1e1e1;
 }
 
-/* Site Name */
-.site-name {
-    margin-top: 60px; /* Adjust based on header height */
+header.site-name {
     text-align: center;
+    padding: 20px;
+    position: relative;
 }
 
-.site-name h1 {
-    font-size: 48px;
+header.site-name h1 {
+    font-size: 36px;
     color: #007BFF;
     margin: 0;
-    font-weight: 600;
+    position: relative;
+    padding: 10px;
+    display: inline-block;
+    border: 4px solid #007BFF;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f0f8ff);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.7);
 }
 
-/* Search Bar */
-.search-container {
-    margin: 20px 0;
+section.search-container {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 #search-input {
@@ -70,7 +59,8 @@ body {
     font-size: 16px;
     border: 2px solid #007BFF;
     border-radius: 5px;
-    outline: none;
+    margin-right: 10px;
+    width: 300px;
 }
 
 #search-button {
@@ -80,73 +70,42 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 #search-button:hover {
     background-color: #0056b3;
 }
 
-/* Group List */
-.group-list {
+main.group-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 1200px;
+    margin: 20px auto;
+    max-width: 800px;
 }
 
-.group-list h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Group Card */
 .group-card {
     background-color: #ffffff;
     border: 2px solid #007BFF;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 20px;
     width: 100%;
-    max-width: 350px;
-    margin: 10px 0;
+    max-width: 400px;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    margin: 10px 0;
 }
 
 .group-card:hover {
     background-color: #f0f8ff;
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
-.group-card h3 {
-    font-size: 24px;
-    color: #007BFF;
-    margin-bottom: 10px;
-}
-
-.group-card p {
-    font-size: 16px;
-    color: #555;
-    margin: 5px 0;
-}
-
-/* Footer */
-.footer {
+footer.footer {
     text-align: center;
     padding: 20px;
-    margin-top: auto;
     background-color: #007BFF;
-    color: #ffffff;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-}
-
-.footer p {
-    margin: 5px 0;
-    font-size: 14px;
+    color: white;
+    margin-top: 20px;
 }
