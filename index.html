@@ -1,38 +1,220 @@
-<style>
-    /* Group Card Styles */
-    .group-card {
-        background-color: #ffffff;
-        border: 2px solid #007bff;
-        border-radius: 10px;
-        padding: 15px;
-        margin: 10px auto;
-        width: calc(100% - 40px);
-        max-width: 500px; /* Adjusted width */
-        height: auto; /* Adjusted to automatically resize */
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group System - Select Group</title>
+    <link rel="stylesheet" href="styles1.css">
+    <style>
+        /* Modern and Digital Fresh Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
 
-    .group-card:hover {
-        transform: scale(1.02);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
+        /* Menubar Styles */
+        .menubar {
+            display: flex;
+            justify-content: center;
+            background-color: #007bff;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    /* Footer Adjustments */
-    .footer {
-        text-align: center;
-        padding: 10px; /* Reduced padding */
-        background-color: #007bff;
-        color: white;
-        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
+        .menubar button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            margin: 0 15px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-    .footer p {
-        margin: 2px 0; /* Reduced margin for better compactness */
-        font-size: 12px; /* Adjusted font size */
-        line-height: 1.4; /* Adjusted line height */
-    }
-</style>
+        .menubar button:hover {
+            color: #e1e1e1;
+        }
+
+        /* Site Name */
+        .site-name {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .site-name h1 {
+            font-size: 36px;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        #search-input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        #search-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #search-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Group Card Styles */
+        .group-list {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .group-list h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .group-card {
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px auto;
+            width: calc(100% - 40px);
+            max-width: 500px; /* Adjusted width */
+            height: auto; /* Adjusted to automatically resize */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .group-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .group-card h3 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #007bff;
+        }
+
+        .group-card p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding: 10px; /* Reduced padding */
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 2px 0; /* Reduced margin */
+            font-size: 12px; /* Adjusted font size */
+            line-height: 1.4; /* Adjusted line height */
+        }
+
+        @media (max-width: 768px) {
+            .footer p {
+                font-size: 12px;
+            }
+
+            .group-card {
+                width: calc(100% - 20px);
+                padding: 15px;
+            }
+
+            #search-input {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menubar -->
+    <nav class="menubar">
+        <button onclick="goToPage('index.html')">Home</button>
+        <button onclick="goToPage('contact.html')">Contact</button>
+        <button onclick="goToPage('info.html')">Information</button>
+    </nav>
+
+    <!-- Site Name -->
+    <header class="site-name">
+        <h1>easy info.com</h1>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search-container">
+        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
+        <button id="search-button" onclick="searchGroups()">Search</button>
+    </section>
+
+    <!-- Group List -->
+    <main class="group-list" id="group-list">
+        <h2>Select a Group</h2>
+        <div class="group-card" onclick="goToPasswordPage('Best Friend Group')">
+            <h3>Best Friend Group</h3>
+            <p>Messenger Group</p>
+            <p>Admin by Ajmir Ahmed</p>
+            <p>Click to view group members</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Site Developer: Ajmir Ahmed</p>
+        <p>Company: Bengal Tiger Web Development</p>
+    </footer>
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+
+        function goToPasswordPage(groupName) {
+            window.location.href = `password.html?group=${encodeURIComponent(groupName)}`;
+        }
+
+        function searchGroups() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const groupCards = document.querySelectorAll('.group-card');
+
+            groupCards.forEach(card => {
+                const groupName = card.querySelector('h3').textContent.toLowerCase();
+                card.style.display = groupName.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
