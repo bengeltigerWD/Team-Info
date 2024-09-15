@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Member List</title>
+    <title>TeamInfo.com/Member list</title>
     <link rel="stylesheet" href="styles6.css"> <!-- Linked updated external CSS -->
     <style>
         /* Modern styles for the member page */
@@ -130,7 +129,7 @@
 
     <!-- Messenger Group Link -->
     <div class="messenger-link">
-        <a href="https://m.me/j/AbbO2-PmtDJHYkUd/" target="_blank">Join Messenger Group</a>
+        <a href="#" id="messenger-link" target="_blank">Join Messenger Group</a>
     </div>
 
     <!-- Member List -->
@@ -149,9 +148,9 @@
                 { name: "Zim Ahmed", profileLink: "profile.html?member=Zim" },
                 { name: "Tamim Ahmed", profileLink: "profile.html?member=Tamim" }, 
                 { name: "Siam Hasan", profileLink: "profile.html?member=Siam" },
-                { name: "Md Sharia Naim", profileLink: "profile.html?member=Naim" }//Md Sharia Naim
+                { name: "Md Sharia Naim", profileLink: "profile.html?member=Naim" }
             ],
-            "Humanities HSC Batch 2026 KC": [ // New Group
+            "Humanities HSC Batch 2026 KC": [
                 { name: "Arafat Ariyan", profileLink: "profile.html?member=Arafat Ariyan" },
                 { name: "Ahsan Ahmed Ajmir", profileLink: "profile.html?member=Ajmir" },
                 { name: "Mahamudul Hasan Asik", profileLink: "profile.html?member=Asik" },
@@ -170,6 +169,11 @@
             ]
         };
 
+        const messengerLinks = {
+            "Best Friend Group": "https://m.me/j/AbbO2-PmtDJHYkUd/",
+            "Humanities HSC Batch 2026 KC": "https://m.me/j/AbcXyZ12345abc/"
+        };
+
         function getGroupNameFromURL() {
             const params = new URLSearchParams(window.location.search);
             return params.get('group');
@@ -177,10 +181,6 @@
 
         function displayMembers() {
             const groupName = getGroupNameFromURL();
-            
-            // Clear previous content to prevent duplicates
-            document.getElementById("group-name").textContent = '';
-            document.getElementById("member-list").innerHTML = '';
 
             // Update the group name
             document.getElementById("group-name").textContent = groupName;
@@ -193,26 +193,29 @@
                 members.forEach(member => {
                     const div = document.createElement("div");
                     div.className = "member-item";
-                    
+
                     const serial = document.createElement("div");
                     serial.className = "serial";
                     serial.textContent = serialNumber++;
-                    
+
                     const name = document.createElement("div");
                     name.textContent = member.name;
-                    
+
                     div.appendChild(serial);
                     div.appendChild(name);
                     div.onclick = () => window.location.href = member.profileLink;
-                    
+
                     memberListElement.appendChild(div);
                 });
             } else {
-                // Show a message if no members are found for the group
                 const message = document.createElement("p");
                 message.textContent = "No members found for this group.";
                 memberListElement.appendChild(message);
             }
+
+            // Set the messenger group link based on the group
+            const messengerLink = messengerLinks[groupName] || "#";
+            document.getElementById("messenger-link").href = messengerLink;
         }
 
         function searchMembers() {
@@ -226,14 +229,14 @@
         }
 
         function goHome() {
-            window.location.href = 'index.html';
+            window.location.href = "index.html";
         }
 
         function goBack() {
             window.history.back();
         }
 
-        // Initialize page content
+        // Display members when the page loads
         displayMembers();
     </script>
 </body>
