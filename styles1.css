@@ -1,43 +1,40 @@
-/* Global Styles */
+/* Smart, Modern, and Robotic Look with Blue Shades and Simple Animations */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f5f9;
     margin: 0;
     padding: 0;
     color: #333;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #0056b3;
+    transition: background-color 0.3s ease;
 }
 
 /* Menubar Styles */
 .menubar {
     display: flex;
     justify-content: center;
-    background-color: #007bff;
+    background-color: #00264d;
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .menubar button {
-    background: none;
+    background-color: #007bff;
     border: none;
     color: white;
     font-size: 16px;
-    margin: 0 15px;
+    margin: 0 10px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .menubar button:hover {
-    color: #e1e1e1;
+    background-color: #005bb5;
+    transform: translateY(-3px);
 }
 
 /* Site Name */
@@ -49,12 +46,17 @@ a:hover {
 .site-name h1 {
     font-size: 36px;
     color: #007bff;
-    border: 2px solid #007bff;
-    padding: 10px 20px;
-    border-radius: 10px;
-    display: inline-block;
+    padding: 15px 30px;
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    display: inline-block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.site-name h1:hover {
+    transform: scale(1.05);
 }
 
 /* Search Bar Styles */
@@ -67,10 +69,15 @@ a:hover {
 #search-input {
     padding: 10px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #ddd;
     width: 300px;
-    margin-right: 10px;
+    transition: border 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 #search-button {
@@ -78,13 +85,14 @@ a:hover {
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #search-button:hover {
-    background-color: #0056b3;
+    background-color: #005bb5;
+    transform: translateY(-2px);
 }
 
 /* Group Card Styles */
@@ -102,18 +110,19 @@ a:hover {
 .group-card {
     background-color: #ffffff;
     border: 2px solid #007bff;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 20px;
     margin: 10px auto;
     width: calc(100% - 40px);
     max-width: 600px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .group-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .group-card h3 {
@@ -131,20 +140,18 @@ a:hover {
 /* Footer Styles */
 .footer {
     text-align: center;
-    padding: 15px;
-    background-color: #007bff;
+    padding: 20px;
+    background-color: #00264d;
     color: white;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .footer p {
     margin: 5px 0;
     font-size: 14px;
-    line-height: 1.5;
-    word-break: break-word;
 }
 
 @media (max-width: 768px) {
