@@ -3,14 +3,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #e0f7fa; /* Light, soothing background color */
 }
 
 /* Header with Menu Bar */
 header {
-    background-color: #333;
+    background-color: #00796b; /* Deep teal color */
     color: white;
     padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 header .container {
@@ -20,10 +21,6 @@ header .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-header h1 {
-    margin: 0;
 }
 
 nav ul {
@@ -47,6 +44,21 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Site Title */
+.site-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.site-title h1 {
+    background-color: #004d40; /* Darker teal color */
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #004d40; /* Matching border color */
+    display: inline-block;
+}
+
 /* Search Container */
 .search-container {
     text-align: center;
@@ -56,19 +68,22 @@ nav ul li a:hover {
 .search-container input[type="text"] {
     padding: 10px;
     width: 200px;
+    border: 1px solid #00796b;
+    border-radius: 5px;
 }
 
 .search-container button {
     padding: 10px 20px;
     margin-left: 10px;
-    background-color: #333;
+    background-color: #00796b;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 .search-container button:hover {
-    background-color: #555;
+    background-color: #004d40;
 }
 
 /* Group List */
@@ -86,14 +101,16 @@ nav ul li a:hover {
     max-width: 400px;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
 .group-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .group-card h2 {
     margin: 0 0 10px 0;
+    color: #004d40; /* Darker teal color */
 }
 
 .group-card .description,
@@ -105,7 +122,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #00796b; /* Matching footer color */
     color: white;
     padding: 10px 0;
     text-align: center;
