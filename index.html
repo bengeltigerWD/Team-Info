@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="styles1.css">
     <style>
         /* Additional styles for footer text color */
-        footer a {
-            color: white; /* Set link color to white */
-            text-decoration: none; /* Remove underline from links */
-        }
-
-        footer a:hover {
-            text-decoration: underline; /* Add underline on hover */
-        }
-
         footer {
-            background-color: #007BFF; /* Ensure the footer background contrasts with text */
+            background-color: #007BFF; /* Reverts to the previous footer background color */
             color: white; /* Default text color in the footer */
             padding: 10px 20px;
             text-align: center;
+        }
+
+        footer a {
+            color: white; /* Set link color to white */
+            text-decoration: underline; /* Add underline to links */
+        }
+
+        footer a:hover {
+            text-decoration: underline; /* Maintain underline on hover */
         }
     </style>
 </head>
