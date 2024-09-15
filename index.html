@@ -3,160 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Easy Info.com</title>
-    <link rel="stylesheet" href="styles1.css"> <!-- Linked external CSS -->
+    <title>Group System - Select Group</title>
+    <link rel="stylesheet" href="styles1.css">
     <style>
-        /* Modern and Stylish Styles */
+        /* Modern styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0a0a0a; /* Dark background for a sleek look */
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #fff;
-            text-align: center;
+            background-color: #f4f4f4;
         }
 
-        /* Header with site name */
-        .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: #007bff;
-            color: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-
-        /* Main Container */
-        .main-container {
-            padding: 100px 20px 20px; /* Space for fixed header */
-        }
-
-        /* Site Name */
         .site-name {
-            font-size: 48px;
-            font-weight: bold;
-            color: #fff;
-            margin: 0;
-        }
-
-        /* Search Bar */
-        .search-container {
-            margin: 20px 0;
-        }
-
-        .search-container input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            width: 300px;
-        }
-
-        .search-container button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
             color: white;
+            font-size: 24px;
+        }
+
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #search-input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .menu-bar {
+            background-color: black; /* Changed to black */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .menu-bar .menu {
+            display: none; /* Hidden by default, visible on button click */
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background-color: black; /* Black background for the menu */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu-bar button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
             cursor: pointer;
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        .search-container button:hover {
-            background-color: #0056b3;
+        .menu-bar button:hover {
+            background-color: #ddd;
         }
 
-        /* Menu Card */
-        .menu-card {
-            background-color: #ffffff;
-            color: #333;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .menu-bar .menu a {
+            color: white; /* Text color for menu items */
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .menu-bar .menu a:hover {
+            background-color: #555;
+            border-radius: 3px;
+        }
+
+        .group-list {
+            text-align: center;
             padding: 20px;
-            margin: 20px auto;
-            max-width: 400px;
         }
 
-        .menu-card h2 {
-            margin-top: 0;
-            color: #007bff;
+        .group-card {
+            background-color: white;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            width: 250px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
         }
 
-        .menu-card p {
-            margin: 10px 0;
-            font-size: 16px;
+        .group-card:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Footer Styles */
         .footer {
             text-align: center;
-            padding: 15px;
-            background-color: #007bff;
-            color: white;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .footer p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .menu-card {
-                width: calc(100% - 20px);
-                padding: 15px;
-            }
-
-            .site-name {
-                font-size: 36px;
-            }
+            margin-top: 20px;
+            padding: 10px;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <!-- Header with site name -->
-    <header class="header">
-        <h1>Easy Info.com</h1>
-    </header>
+    <!-- Site Name -->
+    <div class="site-name">
+        <h1>biopro.com</h1>
+    </div>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Site Name -->
-        <div class="site-name">Welcome to Easy Info.com</div>
-
-        <!-- Search Bar -->
-        <div class="search-container">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <button onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="info.html">Information</a>
         </div>
+    </div>
 
-        <!-- Menu Card -->
-        <div class="menu-card">
-            <h2>Menu</h2>
-            <p><a href="index.html">Home</a></p>
-            <p><a href="contact.html">Contact</a></p>
-            <p><a href="info.html">Information</a></p>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
+    </div>
+
+    <!-- Group List -->
+    <div class="group-list" id="group-list">
+        <h1>Select a Group</h1>
+        
+        <!-- Best Friend Group -->
+        <div class="group-card" onclick="goToPasswordPage('Best Friend Group')">
+            <h2>Best Friend Group</h2>
+            <p style="font-size: small;">Messenger Group</p>
+            <p style="font-size: small;">Admin by Ajmir Ahmed</p>
+            <p>Click to view group members</p>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>Site Developer: Ajmir Ahmed</p>
-        <p>Company: Bengal Tiger Web Development</p>
-    </footer>
+    <div class="footer">
+        <p>Site developer: Ajmir Ahmed | Company: Bengal Tiger Web Development</p>
+    </div>
+
+    <script>
+        function goToPasswordPage(groupName) {
+            window.location.href = `password.html?group=${encodeURIComponent(groupName)}`;
+        }
+
+        function searchGroups() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const groupCards = document.querySelectorAll('.group-card');
+
+            groupCards.forEach(card => {
+                const groupName = card.querySelector('h2').textContent.toLowerCase();
+                card.style.display = groupName.includes(input) ? 'block' : 'none';
+            });
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </body>
 </html>
