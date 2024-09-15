@@ -3,62 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Select Group</title>
+    <title>Home - Easy Info.com</title>
     <link rel="stylesheet" href="styles1.css">
     <style>
-        /* Modern styles */
+        /* Modern and Digital Fresh Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a; /* Dark background for spaceship theme */
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            color: #fff;
         }
 
-        .site-name {
-            text-align: center;
-            padding: 20px;
-            background-color: #007BFF;
-            color: white;
-            font-size: 24px;
-        }
-
-        .search-container {
-            text-align: center;
-            margin: 20px;
-        }
-
-        #search-input {
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .menu-bar {
-            background-color: black; /* Changed to black */
+        /* Header with navigation buttons */
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
-        }
-
-        .menu-bar .menu {
-            display: none; /* Hidden by default, visible on button click */
-            flex-direction: column;
-            gap: 10px;
-            position: absolute;
-            top: 60px;
-            left: 10px;
-            background-color: black; /* Black background for the menu */
+            padding: 15px 20px;
+            background-color: #007bff;
             color: white;
-            padding: 10px;
-            border-radius: 5px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
         }
 
-        .menu-bar button {
-            background-color: white;
-            color: black;
+        .header button {
+            background-color: transparent; /* Remove background */
+            color: white; /* Text color white */
             border: none;
             padding: 10px 15px;
             cursor: pointer;
@@ -66,107 +40,174 @@
             transition: background-color 0.3s;
         }
 
-        .menu-bar button:hover {
-            background-color: #ddd;
+        .header button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
         }
 
-        .menu-bar .menu a {
-            color: white; /* Text color for menu items */
-            text-decoration: none;
-            padding: 5px 0;
+        /* Running Text Effect */
+        .running-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: #00c1d4; /* Bright cyan color */
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: moveText 5s linear infinite;
         }
 
-        .menu-bar .menu a:hover {
-            background-color: #555;
-            border-radius: 3px;
+        @keyframes moveText {
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-50px); }
+            100% { transform: translate(-50%, -50%) translateY(0); }
         }
 
-        .group-list {
+        /* Welcome Message */
+        .welcome-message {
             text-align: center;
-            padding: 20px;
+            margin-top: 100px; /* Space for running text */
+        }
+
+        .welcome-message h1 {
+            font-size: 36px;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            animation: fadeInOut 3s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Group List Styles */
+        .group-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 120px 20px 20px; /* Space for header and running text */
         }
 
         .group-card {
-            background-color: white;
-            border: 2px solid #007BFF;
+            background-color: #ffffff;
+            border: 2px solid #007bff;
             border-radius: 10px;
             padding: 20px;
             margin: 10px;
-            display: inline-block;
-            width: 250px;
-            cursor: pointer;
-            transition: box-shadow 0.3s;
+            width: calc(100% - 40px);
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .group-card:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
+        .group-card h3 {
+            font-size: 22px;
+            color: #007bff;
+            margin: 10px 0;
+        }
+
+        .group-card p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Footer Styles */
         .footer {
             text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            color: #555;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .group-card {
+                width: calc(100% - 20px);
+                padding: 15px;
+            }
+
+            .welcome-message h1 {
+                font-size: 28px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            .header button {
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Site Name -->
-    <div class="site-name">
-        <h1>biopro.com</h1>
-    </div>
+    <!-- Header with navigation buttons -->
+    <header class="header">
+        <button onclick="goToPage('index.html')">Home</button>
+        <button onclick="goToPage('contact.html')">Contact</button>
+        <button onclick="goToPage('info.html')">Information</button>
+    </header>
 
-    <!-- Menu Bar -->
-    <div class="menu-bar">
-        <button onclick="toggleMenu()">☰ Menu</button>
-        <div class="menu" id="menu">
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
-            <a href="info.html">Information</a>
-        </div>
-    </div>
+    <!-- Running Text Effect -->
+    <div class="running-text">Easy Info.com</div>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
-    </div>
+    <!-- Welcome Message -->
+    <section class="welcome-message">
+        <h1>Welcome to Easy Info.com</h1>
+    </section>
 
     <!-- Group List -->
-    <div class="group-list" id="group-list">
-        <h1>Select a Group</h1>
-        
-        <!-- Best Friend Group -->
+    <main class="group-list">
         <div class="group-card" onclick="goToPasswordPage('Best Friend Group')">
-            <h2>Best Friend Group</h2>
-            <p style="font-size: small;">Messenger Group</p>
-            <p style="font-size: small;">Admin by Ajmir Ahmed</p>
+            <h3>Best Friend Group</h3>
+            <p>Messenger Group</p>
+            <p>Admin by Ajmir Ahmed</p>
             <p>Click to view group members</p>
         </div>
-    </div>
+
+        <div class="group-card" onclick="goToPasswordPage('Humanities HSC Batch 2026 KC')">
+            <h3>Humanities HSC Batch 2026 KC</h3>
+            <p>Messenger Group</p>
+            <p>Admin by Arafat Ariyan</p>
+            <p>Click to view group members</p>
+        </div>
+    </main>
 
     <!-- Footer -->
-    <div class="footer">
-        <p>Site developer: Ajmir Ahmed | Company: Bengal Tiger Web Development</p>
-    </div>
+    <footer class="footer">
+        <p>Site Developer: Ajmir Ahmed</p>
+        <p>Company: Bengal Tiger Web Development</p>
+    </footer>
 
     <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+
         function goToPasswordPage(groupName) {
             window.location.href = `password.html?group=${encodeURIComponent(groupName)}`;
-        }
-
-        function searchGroups() {
-            const input = document.getElementById('search-input').value.toLowerCase();
-            const groupCards = document.querySelectorAll('.group-card');
-
-            groupCards.forEach(card => {
-                const groupName = card.querySelector('h2').textContent.toLowerCase();
-                card.style.display = groupName.includes(input) ? 'block' : 'none';
-            });
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
     </script>
 </body>
