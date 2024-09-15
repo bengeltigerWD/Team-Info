@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  Member Profile</title>
-    <link rel="stylesheet" href="styles0.css"> <!-- Linked updated external CSS -->
+    <title>Member Profile</title>
+    <link rel="stylesheet" href="styles0.css">
     <style>
-        /* Add your updated styles here */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -24,8 +23,8 @@
         }
 
         .header button {
-            background-color: transparent; /* Remove background */
-            color: white; /* Text color white */
+            background-color: transparent;
+            color: white;
             border: none;
             padding: 10px 15px;
             cursor: pointer;
@@ -34,7 +33,7 @@
         }
 
         .header button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3;
         }
 
         .profile-container {
@@ -97,6 +96,7 @@
                 <p id="member-mobile"><a id="phone-link" href="">Mobile: </a></p>
                 <p id="member-job"></p>
                 <p id="member-email"><a id="email-link" href="">Email: </a></p>
+                <p id="member-facebook"><a id="facebook-link" href="">Facebook ID: </a></p>
             </div>
         </div>
     </div>
@@ -107,49 +107,57 @@
                 photo: "ajmir.png",
                 mobile: "01938954599",
                 job: "Student",
-                email: "ajmirahemed5@gmail.com"
+                email: "ajmirahemed5@gmail.com",
+                facebook: "https://facebook.com/ajmirprofile"
             },
             "Rahat": {
                 photo: "rahat.jpg",
                 mobile: "234-567-8901",
                 job: "Student",
-                email: "rahat@example.com"
+                email: "rahat@example.com",
+                facebook: "https://facebook.com/rahatprofile"
             },
             "Asik": {
                 photo: "asik.jpg",
                 mobile: "01946420542",
                 job: "Student",
-                email: "mahamudasik@gmailcom"
+                email: "mahamudasik@gmail.com",
+                facebook: "https://facebook.com/asikprofile"
             },
             "Sornojit": {
                 photo: "sornojit.jpg",
                 mobile: "456-789-0123",
                 job: "Student",
-                email: "sornojit@example.com"
+                email: "sornojit@example.com",
+                facebook: "https://facebook.com/sornojitprofile"
             },
             "Zim": {
                 photo: "zim.jpg",
                 mobile: "01407149184",
                 job: "Student",
-                email: "zim@example.com"
+                email: "zim@example.com",
+                facebook: "https://facebook.com/zimprofile"
             },
             "Naim": {
                 photo: "naim.jpg",
                 mobile: "678-901-2345",
                 job: "Student",
-                email: "naim@example.com"
+                email: "naim@example.com",
+                facebook: "https://facebook.com/naimprofile"
             },
             "Siam": {
                 photo: "siam.jpg",
                 mobile: "789-012-3456",
                 job: "Student",
-                email: "siam@example.com"
+                email: "siam@example.com",
+                facebook: "https://facebook.com/siamprofile"
             },
-            "Tamim": { // Added new member
+            "Tamim": {
                 photo: "tamim.jpg",
                 mobile: "01944154128",
                 job: "Student",
-                email: "taminbd30@gmail.com"
+                email: "taminbd30@gmail.com",
+                facebook: "https://facebook.com/tamimprofile"
             }
         };
 
@@ -170,6 +178,8 @@
                 document.getElementById("member-job").textContent = `Job: ${details.job}`;
                 document.getElementById("email-link").href = `mailto:${details.email}`;
                 document.getElementById("email-link").textContent = `Email: ${details.email}`;
+                document.getElementById("facebook-link").href = details.facebook;
+                document.getElementById("facebook-link").textContent = `Facebook ID`;
             } else {
                 document.getElementById("member-name").textContent = "Member not found";
             }
