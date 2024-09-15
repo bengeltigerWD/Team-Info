@@ -3,114 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group System - Select Group</title>
-    <link rel="stylesheet" href="styles1.css">
+    <title>Home - Easy Info.com</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Linked external CSS -->
     <style>
         /* Modern and Digital Fresh Styles */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a; /* Dark background for spaceship theme */
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #fff;
         }
 
-        /* Menubar Styles */
-        .menubar {
+        /* Header with navigation buttons */
+        .header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
             background-color: #007bff;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .menubar button {
-            background: none;
-            border: none;
             color: white;
-            font-size: 16px;
-            margin: 0 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .header button {
+            background-color: transparent; /* Remove background */
+            color: white; /* Text color white */
+            border: none;
+            padding: 10px 15px;
             cursor: pointer;
-            transition: color 0.3s ease;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        .menubar button:hover {
-            color: #e1e1e1;
+        .header button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
         }
 
-        /* Site Name with Moving Text */
-        .site-name {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .site-name h1 {
-            font-size: 36px;
-            color: #007bff;
-            border: 2px solid #007bff;
-            padding: 10px 20px;
-            border-radius: 10px;
-            display: inline-block;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .site-name h1::after {
-            content: 'easy info.com';
+        /* Running Text Effect */
+        .running-text {
             position: absolute;
-            left: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: #00c1d4; /* Bright cyan color */
             white-space: nowrap;
-            animation: moveText 10s linear infinite;
-            color: #007bff;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: moveText 5s linear infinite;
         }
 
         @keyframes moveText {
-            0% { left: 100%; }
-            100% { left: -100%; }
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-50px); }
+            100% { transform: translate(-50%, -50%) translateY(0); }
         }
 
-        /* Search Bar Styles */
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        #search-input {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            width: 300px;
-            margin-right: 10px;
-        }
-
-        #search-button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #search-button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Group Card Styles */
-        .group-list {
+        /* Welcome Message */
+        .welcome-message {
             text-align: center;
-            padding: 20px;
+            margin-top: 100px; /* Space for running text */
         }
 
-        .group-list h2 {
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 20px;
+        .welcome-message h1 {
+            font-size: 36px;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            animation: fadeInOut 3s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Group List Styles */
+        .group-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 100px 20px 20px; /* Space for header and running text */
         }
 
         .group-card {
@@ -118,22 +97,22 @@
             border: 2px solid #007bff;
             border-radius: 10px;
             padding: 20px;
-            margin: 10px auto;
+            margin: 10px;
             width: calc(100% - 40px);
-            max-width: 500px; /* Reduced width */
+            max-width: 300px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .group-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .group-card h3 {
-            font-size: 24px;
-            margin: 10px 0;
+            font-size: 22px;
             color: #007bff;
+            margin: 10px 0;
         }
 
         .group-card p {
@@ -145,10 +124,10 @@
         /* Footer Styles */
         .footer {
             text-align: center;
-            padding: 10px; /* Reduced padding */
+            padding: 15px;
             background-color: #007bff;
             color: white;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
             position: relative;
             bottom: 0;
             width: 100%;
@@ -162,49 +141,52 @@
         }
 
         @media (max-width: 768px) {
-            .footer p {
-                font-size: 12px;
-            }
-
             .group-card {
                 width: calc(100% - 20px);
                 padding: 15px;
             }
 
-            #search-input {
-                width: 200px;
+            .welcome-message h1 {
+                font-size: 28px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            .header button {
+                margin-bottom: 5px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Menubar -->
-    <nav class="menubar">
+    <!-- Header with navigation buttons -->
+    <header class="header">
         <button onclick="goToPage('index.html')">Home</button>
         <button onclick="goToPage('contact.html')">Contact</button>
         <button onclick="goToPage('info.html')">Information</button>
-    </nav>
-
-    <!-- Site Name -->
-    <header class="site-name">
-        <h1>easy info.com</h1>
     </header>
 
-    <!-- Search Bar -->
-    <section class="search-container">
-        <input type="text" id="search-input" placeholder="Search group..." onkeyup="searchGroups()">
-        <button id="search-button" onclick="searchGroups()">Search</button>
+    <!-- Running Text Effect -->
+    <div class="running-text">Easy Info.com</div>
+
+    <!-- Welcome Message -->
+    <section class="welcome-message">
+        <h1>Welcome to Easy Info.com</h1>
     </section>
 
     <!-- Group List -->
-    <main class="group-list" id="group-list">
-        <h2>Select a Group</h2>
+    <main class="group-list">
         <div class="group-card" onclick="goToPasswordPage('Best Friend Group')">
             <h3>Best Friend Group</h3>
             <p>Messenger Group</p>
             <p>Admin by Ajmir Ahmed</p>
             <p>Click to view group members</p>
         </div>
+
         <div class="group-card" onclick="goToPasswordPage('Humanities HSC Batch 2026 KC')">
             <h3>Humanities HSC Batch 2026 KC</h3>
             <p>Messenger Group</p>
@@ -226,16 +208,6 @@
 
         function goToPasswordPage(groupName) {
             window.location.href = `password.html?group=${encodeURIComponent(groupName)}`;
-        }
-
-        function searchGroups() {
-            const input = document.getElementById('search-input').value.toLowerCase();
-            const groupCards = document.querySelectorAll('.group-card');
-
-            groupCards.forEach(card => {
-                const groupName = card.querySelector('h3').textContent.toLowerCase();
-                card.style.display = groupName.includes(input) ? 'block' : 'none';
-            });
         }
     </script>
 </body>
