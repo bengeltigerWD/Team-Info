@@ -1,118 +1,105 @@
-/* Modern, High-Quality Styles for Index Page */
+/* Modern and Digital AI-Inspired Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f6f9;
+    background: linear-gradient(135deg, #00aaff, #0044cc);
+    color: #ffffff;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-/* Menubar Styles */
 .menubar {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #007bff;
+    background-color: #002244;
     padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .menubar button {
     background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
+    border: 2px solid #00aaff;
+    color: #ffffff;
+    font-size: 16px;
     margin: 0 20px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: color 0.3s, border-bottom 0.3s;
-    padding: 10px;
-    position: relative;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 }
 
 .menubar button:hover {
-    color: #e1e1e1;
-    border-bottom: 2px solid #e1e1e1;
+    background-color: #00aaff;
+    color: #ffffff;
+    transform: scale(1.05);
 }
 
-/* Site Name */
 .site-name {
     text-align: center;
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 .site-name h1 {
     font-size: 48px;
-    color: #007bff;
-    background: linear-gradient(to right, #007bff, #00b4db);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 10px;
+    color: #ffffff;
+    border: 2px solid #00aaff;
+    padding: 20px 40px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
     display: inline-block;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Moving Text Animation */
-.moving-text-container {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     position: relative;
-    height: 100px;
     overflow: hidden;
 }
 
-.moving-text {
+.site-name h1::before {
+    content: '';
     position: absolute;
+    left: 0;
+    top: -100%;
     width: 100%;
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    white-space: nowrap;
-    animation: moveText 10s linear infinite;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    animation: shine 2s infinite;
 }
 
-@keyframes moveText {
-    0% { transform: translateY(100%); }
-    50% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
-.welcome-text {
-    font-size: 18px;
-    color: #555;
-    margin-top: 10px;
-}
-
-/* Search Bar Styles */
 .search-container {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 #search-input {
     padding: 12px;
     font-size: 18px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    width: 320px;
+    border-radius: 10px;
+    border: none;
+    width: 300px;
     margin-right: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 #search-button {
     padding: 12px 25px;
-    background-color: #007bff;
-    color: white;
+    background-color: #00aaff;
+    color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #search-button:hover {
-    background-color: #0056b3;
+    background-color: #0044cc;
+    transform: scale(1.05);
 }
 
-/* Group Card Styles */
 .group-list {
     text-align: center;
     padding: 20px;
@@ -120,47 +107,47 @@ body {
 
 .group-list h2 {
     font-size: 32px;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .group-card {
     background-color: #ffffff;
-    border: 2px solid #007bff;
-    border-radius: 10px;
+    border: 2px solid #00aaff;
+    border-radius: 15px;
     padding: 20px;
-    margin: 15px auto;
-    width: calc(100% - 30px);
+    margin: 20px auto;
+    width: calc(100% - 40px);
     max-width: 500px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .group-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .group-card h3 {
     font-size: 26px;
     margin: 10px 0;
-    color: #007bff;
+    color: #0044cc;
 }
 
 .group-card p {
     margin: 5px 0;
     font-size: 18px;
-    color: #555;
+    color: #333;
 }
 
-/* Footer Styles */
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: #007bff;
-    color: white;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+    background-color: #002244;
+    color: #ffffff;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
     position: relative;
     bottom: 0;
     width: 100%;
@@ -173,10 +160,14 @@ body {
     word-break: break-word;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-    .footer p {
-        font-size: 14px;
+    .site-name h1 {
+        font-size: 36px;
+        padding: 15px 30px;
+    }
+
+    #search-input {
+        width: 200px;
     }
 
     .group-card {
@@ -184,7 +175,7 @@ body {
         padding: 15px;
     }
 
-    #search-input {
-        width: 240px;
+    .footer p {
+        font-size: 14px;
     }
 }
