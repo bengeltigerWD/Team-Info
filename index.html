@@ -8,7 +8,7 @@
     <style>
         /* Modern and Digital Fresh Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f0f2f5;
             margin: 0;
             padding: 0;
@@ -42,8 +42,6 @@
         .site-name {
             text-align: center;
             margin: 20px 0;
-            position: relative;
-            overflow: hidden;
         }
 
         .site-name h1 {
@@ -55,20 +53,12 @@
             display: inline-block;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .marquee {
-            width: 100%;
-            color: #ff6600;
-            font-size: 18px;
-            position: absolute;
-            bottom: -30px;
-            animation: moveText 10s linear infinite;
+            animation: moveText 5s infinite alternate;
         }
 
         @keyframes moveText {
-            0% { left: 100%; }
-            100% { left: -100%; }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(30px); }
         }
 
         /* Search Bar Styles */
@@ -120,10 +110,9 @@
             padding: 20px;
             margin: 10px auto;
             width: calc(100% - 40px);
-            max-width: 500px;
+            max-width: 500px; /* Reduced width */
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: auto; /* Added to reduce the length */
         }
 
         .group-card:hover {
@@ -132,7 +121,7 @@
         }
 
         .group-card h3 {
-            font-size: 22px;
+            font-size: 24px;
             margin: 10px 0;
             color: #007bff;
         }
@@ -146,7 +135,7 @@
         /* Footer Styles */
         .footer {
             text-align: center;
-            padding: 10px;
+            padding: 10px; /* Reduced padding */
             background-color: #007bff;
             color: white;
             box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
@@ -156,23 +145,20 @@
         }
 
         .footer p {
-            margin: 0;
+            margin: 5px 0;
             font-size: 14px;
             line-height: 1.5;
             word-break: break-word;
         }
 
-        /* Fix for developer and company name on mobile */
         @media (max-width: 768px) {
             .footer p {
                 font-size: 12px;
-                padding: 5px;
             }
 
             .group-card {
                 width: calc(100% - 20px);
                 padding: 15px;
-                margin-bottom: 20px;
             }
 
             #search-input {
@@ -192,7 +178,6 @@
     <!-- Site Name -->
     <header class="site-name">
         <h1>easy info.com</h1>
-        <div class="marquee">Welcome to easy info.com - Your Smart Info Solution</div>
     </header>
 
     <!-- Search Bar -->
@@ -208,6 +193,12 @@
             <h3>Best Friend Group</h3>
             <p>Messenger Group</p>
             <p>Admin by Ajmir Ahmed</p>
+            <p>Click to view group members</p>
+        </div>
+        <div class="group-card" onclick="goToPasswordPage('Humanities HSC Batch 2026 KC')">
+            <h3>Humanities HSC Batch 2026 KC</h3>
+            <p>Messenger Group</p>
+            <p>Admin by Arafat Ariyan</p>
             <p>Click to view group members</p>
         </div>
     </main>
