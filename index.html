@@ -6,75 +6,77 @@
     <title>Group System - Select Group</title>
     <link rel="stylesheet" href="styles1.css">
     <style>
-        /* Modern and Digital Fresh Styles */
+        /* Smart Robotic, Modern, and Mobile-friendly Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9f0f4;
+            color: #333;
             margin: 0;
             padding: 0;
-            color: #333;
         }
 
         /* Menubar Styles */
         .menubar {
             display: flex;
             justify-content: center;
-            background-color: #007bff;
+            background-color: #282c34;
             padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
         }
 
         .menubar button {
-            background: none;
+            background-color: #61dafb;
             border: none;
-            color: white;
+            color: #282c34;
             font-size: 16px;
-            margin: 0 15px;
+            margin: 0 10px;
+            padding: 10px 20px;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
         }
 
         .menubar button:hover {
-            color: #e1e1e1;
+            background-color: #21a1f1;
+            transform: translateY(-2px);
         }
 
         /* Site Name */
         .site-name {
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         .site-name h1 {
-            font-size: 36px;
-            color: #007bff;
-            border: 2px solid #007bff;
-            padding: 10px 20px;
-            border-radius: 10px;
+            font-size: 40px;
+            color: #61dafb;
+            padding: 15px 30px;
+            background-color: #282c34;
+            border-radius: 15px;
             display: inline-block;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Search Bar Styles */
         .search-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         #search-input {
             padding: 10px;
             font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            width: 300px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 250px;
             margin-right: 10px;
         }
 
         #search-button {
             padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
+            background-color: #61dafb;
+            color: #282c34;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -82,7 +84,7 @@
         }
 
         #search-button:hover {
-            background-color: #0056b3;
+            background-color: #21a1f1;
         }
 
         /* Group Card Styles */
@@ -93,46 +95,45 @@
 
         .group-list h2 {
             font-size: 28px;
-            color: #333;
+            color: #282c34;
             margin-bottom: 20px;
         }
 
         .group-card {
             background-color: #ffffff;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-            padding: 20px;
+            border: 1px solid #61dafb;
+            border-radius: 12px;
+            padding: 15px;
             margin: 10px auto;
-            width: calc(100% - 40px);
-            max-width: 600px;
+            width: 90%;
+            max-width: 400px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .group-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .group-card h3 {
-            font-size: 24px;
+            font-size: 22px;
+            color: #282c34;
             margin: 10px 0;
-            color: #007bff;
         }
 
         .group-card p {
-            margin: 5px 0;
             font-size: 16px;
             color: #555;
+            margin: 5px 0;
         }
 
         /* Footer Styles */
         .footer {
             text-align: center;
-            padding: 15px;
-            background-color: #007bff;
+            padding: 20px;
+            background-color: #282c34;
             color: white;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
             position: relative;
             bottom: 0;
             width: 100%;
@@ -141,8 +142,6 @@
         .footer p {
             margin: 5px 0;
             font-size: 14px;
-            line-height: 1.5;
-            word-break: break-word;
         }
 
         @media (max-width: 768px) {
@@ -151,8 +150,7 @@
             }
 
             .group-card {
-                width: calc(100% - 20px);
-                padding: 15px;
+                padding: 10px;
             }
 
             #search-input {
@@ -171,7 +169,7 @@
 
     <!-- Site Name -->
     <header class="site-name">
-        <h1>biopro.com</h1>
+        <h1>easy info.com</h1>
     </header>
 
     <!-- Search Bar -->
