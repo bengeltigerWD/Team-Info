@@ -151,21 +151,21 @@
                 { name: "Md Sharia Naim", profileLink: "profile.html?member=Naim" }
             ],
             "Humanities HSC Batch 2026 KC": [
-                { name: "Arafat Ariyan", profileLink: "profile.html?member=Arafat Ariyan" },
+                { name: "Arafat Ariyan", profileLink: "profile.html?member=Arafat%20Ariyan" },
                 { name: "Ahsan Ahmed Ajmir", profileLink: "profile.html?member=Ajmir" },
                 { name: "Mahamudul Hasan Asik", profileLink: "profile.html?member=Asik" },
-                { name: "MD Rudro Khan", profileLink: "profile.html?member=MD Rudro Khan" },
-                { name: "Emon Hossen", profileLink: "profile.html?member=Emon Hossen" },
-                { name: "Navid Hasan", profileLink: "profile.html?member=Navid Hasan" },
+                { name: "MD Rudro Khan", profileLink: "profile.html?member=MD%20Rudro%20Khan" },
+                { name: "Emon Hossen", profileLink: "profile.html?member=Emon%20Hossen" },
+                { name: "Navid Hasan", profileLink: "profile.html?member=Navid%20Hasan" },
                 { name: "Rimon", profileLink: "profile.html?member=Rimon" },
-                { name: "Farhan Ihsas", profileLink: "profile.html?member=Farhan Ihsas" },
-                { name: "MD Habib", profileLink: "profile.html?member=MD Habib" },
-                { name: "Itz Shadin", profileLink: "profile.html?member=Itz Shadin" },
-                { name: "MD Jaky", profileLink: "profile.html?member=MD Jaky" },
-                { name: "MD Sami", profileLink: "profile.html?member=MD Sami" },
-                { name: "Md. Naimul Islam", profileLink: "profile.html?member=Md. Naimul Islam" },
-                { name: "MD Rezon", profileLink: "profile.html?member=MD Rezon" },
-                { name: "Sihan Mridah", profileLink: "profile.html?member=Sihan Mridah" }
+                { name: "Farhan Ihsas", profileLink: "profile.html?member=Farhan%20Ihsas" },
+                { name: "MD Habib", profileLink: "profile.html?member=MD%20Habib" },
+                { name: "Itz Shadin", profileLink: "profile.html?member=Itz%20Shadin" },
+                { name: "MD Jaky", profileLink: "profile.html?member=MD%20Jaky" },
+                { name: "MD Sami", profileLink: "profile.html?member=MD%20Sami" },
+                { name: "Md. Naimul Islam", profileLink: "profile.html?member=Md.%20Naimul%20Islam" },
+                { name: "MD Rezon", profileLink: "profile.html?member=MD%20Rezon" },
+                { name: "Sihan Mridah", profileLink: "profile.html?member=Sihan%20Mridah" }
             ]
         };
 
@@ -176,7 +176,7 @@
 
         function getGroupNameFromURL() {
             const params = new URLSearchParams(window.location.search);
-            return params.get('group');
+            return params.get('group') || "Best Friend Group";  // Default to "Best Friend Group"
         }
 
         function displayMembers() {
@@ -187,6 +187,9 @@
 
             const members = groupMembers[groupName];
             const memberListElement = document.getElementById("member-list");
+
+            // Clear existing members if any
+            memberListElement.innerHTML = '';
 
             if (members) {
                 let serialNumber = 1;
@@ -204,27 +207,28 @@
                     div.appendChild(serial);
                     div.appendChild(name);
                     div.onclick = () => window.location.href = member.profileLink;
-
                     memberListElement.appendChild(div);
                 });
-            } else {
-                const message = document.createElement("p");
-                message.textContent = "No members found for this group.";
-                memberListElement.appendChild(message);
-            }
 
-            // Set the messenger group link based on the group
-            const messengerLink = messengerLinks[groupName] || "#";
-            document.getElementById("messenger-link").href = messengerLink;
+                // Update the Messenger link
+                document.getElementById("messenger-link").href = messengerLinks[groupName] || "#";
+            } else {
+                console.log("Group not found: " + groupName);
+            }
         }
 
+        // Search members by name
         function searchMembers() {
-            const input = document.getElementById('search-input').value.toLowerCase();
-            const members = document.querySelectorAll('.member-item');
+            const input = document.getElementById("search-input").value.toLowerCase();
+            const memberItems = document.querySelectorAll(".member-item");
 
-            members.forEach(member => {
-                const memberName = member.querySelector('div:nth-child(2)').textContent.toLowerCase();
-                member.style.display = memberName.includes(input) ? 'block' : 'none';
+            memberItems.forEach(item => {
+                const name = item.querySelector("div:nth-child(2)").textContent.toLowerCase();
+                if (name.includes(input)) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
             });
         }
 
@@ -236,7 +240,7 @@
             window.history.back();
         }
 
-        // Display members when the page loads
+        // Display members on page load
         displayMembers();
     </script>
 </body>
