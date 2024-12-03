@@ -8,36 +8,19 @@
     <style>
         /* Additional styles for footer text color */
         footer {
-            background-color: #00796b;
-            color: white;
+            background-color: #00796b; /* Reverts to the previous footer background color */
+            color: white; /* Default text color in the footer */
             padding: 10px 20px;
             text-align: center;
         }
 
         footer a {
-            color: white;
-            text-decoration: underline;
+            color: white; /* Set link color to white */
+            text-decoration: underline; /* Add underline to links */
         }
 
         footer a:hover {
-            text-decoration: underline;
-        }
-
-        .create-group-container {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #f1f1f1;
-        }
-
-        .create-group-container input,
-        .create-group-container button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
+            text-decoration: underline; /* Maintain underline on hover */
         }
     </style>
 </head>
@@ -60,13 +43,10 @@
         <h1>Teaminfo.com</h1>
     </div>
 
-    <!-- Create Group Section -->
-    <div class="create-group-container">
-        <h2>Create New Group</h2>
-        <input type="text" id="new-group-name" placeholder="Group Name">
-        <input type="password" id="new-group-password" placeholder="Group Password">
-        <input type="text" id="new-group-members" placeholder="Add Members (comma separated)">
-        <button onclick="createGroup()">Create Group</button>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search group/Team..." onkeyup="searchGroups()">
+        <button onclick="searchGroups()">Search</button>
     </div>
 
     <!-- Group List -->
@@ -91,77 +71,45 @@
         <p>Site Developer: Ajmir Ahmed</p>
         <p>Owner of <a href="https://bengeltigerwd.github.io/Bengal-Tiger-Website-Development-LTD/" target="_blank">Bengal Tiger Web Development Ltd</a></p>
     </footer>
-
     <script>
-        // Function to go to the password page
         function goToPasswordPage(groupName) {
-            window.location.href = `password.html?group=${encodeURIComponent(groupName)}`;
+            window.location.href = password.html?group=${encodeURIComponent(groupName)};
         }
 
-        // Function to search for groups
         function searchGroups() {
             const input = document.getElementById('search-input').value.toLowerCase();
             const groupCards = document.querySelectorAll('.group-card');
+
             groupCards.forEach(card => {
                 const groupName = card.querySelector('h2').textContent.toLowerCase();
                 card.style.display = groupName.includes(input) ? 'block' : 'none';
             });
         }
-
-        // Function to create a new group
-        function createGroup() {
-            const groupName = document.getElementById('new-group-name').value.trim();
-            const groupPassword = document.getElementById('new-group-password').value.trim();
-            const groupMembers = document.getElementById('new-group-members').value.trim().split(',');
-
-            if (!groupName || !groupPassword || groupMembers.length === 0) {
-                alert('Please fill all fields');
-                return;
-            }
-
-            // Save new group to localStorage (this can be replaced with a server-side method later)
-            const newGroup = {
-                name: groupName,
-                password: groupPassword,
-                members: groupMembers
-            };
-
-            // Get existing groups from localStorage
-            let groups = JSON.parse(localStorage.getItem('groups')) || [];
-
-            // Add the new group to the list
-            groups.push(newGroup);
-            localStorage.setItem('groups', JSON.stringify(groups));
-
-            // Display the new group in the group list
-            const groupList = document.getElementById('group-list');
-            const newGroupCard = document.createElement('div');
-            newGroupCard.classList.add('group-card');
-            newGroupCard.onclick = function () { goToPasswordPage(groupName) };
-
-            newGroupCard.innerHTML = `
-                <h2>${groupName}</h2>
-                <p class="description">Messenger Group</p>
-                <p class="admin">Admin by ${groupMembers[0]}</p>
-                <p class="info">Click to view group members</p>
-            `;
-            groupList.appendChild(newGroupCard);
-
-            // Clear input fields after group creation
-            document.getElementById('new-group-name').value = '';
-            document.getElementById('new-group-password').value = '';
-            document.getElementById('new-group-members').value = '';
-        }
     </script>
 
-    <!-- Statcounter code (you can leave it as it is) -->
-    <script type="text/javascript">
-    var sc_project=13037300;
-    var sc_invisible=1;
-    var sc_security="ccb23b97";
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-    <noscript><div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13037502/0/dd3f9559/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-
+   <!-- Default Statcounter code for Team-Info
+https://bengeltigerwd.github.io/Team-Info/ -->
+<script type="text/javascript">
+var sc_project=13037300; 
+var sc_invisible=1; 
+var sc_security="ccb23b97"; 
+</script>
+<!-- Default Statcounter code for Team-Info
+https://bengeltigerwd.github.io/Team-Info/ -->
+<script type="text/javascript">
+var sc_project=13037502; 
+var sc_invisible=1; 
+var sc_security="dd3f9559"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13037502/0/dd3f9559/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 </body>
 </html>
